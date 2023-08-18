@@ -1,2 +1,1 @@
-# illuminaite.github.io
-illuminaite's website!
+illuminaite academy's official website
