@@ -265,7 +265,7 @@
 }
 
 .highlight {
-  border-bottom: 4px solid rgb(132, 0, 255);
+  border-bottom: 4px solid #f48b8b;
 }
 
 @media screen and (max-width: 768px) {
@@ -313,8 +313,8 @@
 
 .main__content h1 {
   font-size: 2rem;
-  background-color: #fe3b6f;
-  background-image: linear-gradient(to top, #ff087b 0%, #ed1a52 100%);
+  background-color: #cc4242;
+  /* background-image: linear-gradient(to top, #ff087b 0%, #ed1a52 100%); */
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
