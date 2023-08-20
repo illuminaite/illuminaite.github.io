@@ -559,6 +559,12 @@
   font-size: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .impact__wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* initiatives section */
 .initiatives {
   background: #131313;
@@ -670,11 +676,11 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 1300px) {
+/* @media screen and (max-width: 1300px) {
   .initiatives__wrapper {
     grid-template-columns: 1fr 1fr;
   }
-}
+} */
 
 @media screen and (max-width: 768px) {
   .initiatives__wrapper {
