@@ -255,7 +255,7 @@
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
-  to { width: 55% }
+  to { width: 35% }
 }
 
 /* The typewriter cursor effect */
@@ -297,7 +297,7 @@
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
-  to { width: 93% }
+  to { width: 80% }
 }
 }
 

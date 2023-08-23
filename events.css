@@ -485,19 +485,22 @@
     transition: 0.3s ease-in;
   }
   
-  .previous__card:nth-child(2) {
+  .previous__card:nth-child(2),
+  .previous__card:nth-child(6) {
     background: #ad4242; 
     /* background: -webkit-linear-gradient(-100deg,#8a3c3c, #ff8177); 
     background: linear-gradient(-100deg,#8a3c3c, #ff8177); */
   }
   
-  .previous__card:nth-child(3) {
+  .previous__card:nth-child(3),
+  .previous__card:nth-child(7) {
     background: #992c24; 
     /* background: -webkit-linear-gradient(255deg,#8a3c3c, #ff8177); 
     background: linear-gradient(255deg,#8a3c3c, #ff8177); */
   }
   
-  .previous__card:nth-child(4) {
+  .previous__card:nth-child(4),
+  .previous__card:nth-child(8) {
     background: #6c1d17; 
     /* background: -webkit-linear-gradient(255deg,#8a3c3c, #ff8177); 
     background: linear-gradient(255deg,#8a3c3c, #ff8177); */
