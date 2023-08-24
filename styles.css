@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -46,7 +46,7 @@
   align-items: center;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .navbar__menu {
@@ -89,9 +89,9 @@
   border: none;
   outline: none;
   border-radius: 4px;
-  background: #fc6445;
-  background: -webkit-linear-gradient(to right, #f48b8b, #fc6445, #ab1616);
-  background: linear-gradient(to right, #f48b8b, #fc6445, #ab1616);
+  background: #f08181;
+  /* background: -webkit-linear-gradient(to right, #f48b8b, #fc6445, #ab1616);
+  background: linear-gradient(to right, #f48b8b, #fc6445, #ab1616); */
   color: #fff5f5;
   transition: all 0.3s ease;
 }
