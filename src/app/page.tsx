@@ -11,7 +11,6 @@ export default function Main() {
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
-            <Hero />
             <About />
             <Impact />
             <Initiatives />
