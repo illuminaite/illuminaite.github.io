@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #131313;
+    --primary: #ca4949;
+    --primary-dark: #751d18;
+    --secondary: #ff8177;
+    --secondary-dark: #a14646;
+    --text: #f9efef;
+}
+
+html, body {
+    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: 'Karla', sans-serif;
+    font-weight: 250;
+}
+
+.text-custom-hover:hover {
+    color: var(--secondary);
+}
