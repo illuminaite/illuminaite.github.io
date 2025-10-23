@@ -38,7 +38,8 @@ async function getBlogBySlug(slug: string): Promise<Blog | null> {
 }
 
 export default async function DynamicBlogPage({ params }: BlogPageProps) {
-    const blog = await getBlogBySlug(params.slug);
+    const { slug } = await params;
+    const blog = await getBlogBySlug(slug);
     
     if (!blog) {
         notFound();
