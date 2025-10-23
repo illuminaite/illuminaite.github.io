@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 async function getAllBlogs(): Promise<Blog[]> {
+    // Get all blogs from the data/blogs directory
     const blogsDirectory = path.join(process.cwd(), 'data/blogs');
     
     try {
@@ -29,10 +30,12 @@ export default async function BlogsDashboard() {
     
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
+            {/* Header */}
             <h1 className="text-4xl lg:text-5xl font-bold mb-16 gradient-text">
                 blogs
             </h1>
-            
+
+            {/* Blogs in a 3x3 grid*/}
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {blogs.map((blog) => (
                     <Link 
@@ -65,6 +68,7 @@ export default async function BlogsDashboard() {
                 ))}
             </div>
             
+            {/* Shows if there are no blogs available yet */}
             {blogs.length === 0 && (
                 <div className="text-center py-12">
                     <p className="text-gray-500 text-lg">No blogs available yet.</p>
