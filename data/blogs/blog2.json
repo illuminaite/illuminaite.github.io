@@ -1,0 +1,9 @@
+{
+  "slug": "blog2",
+  "title": "The Future of Web Development",
+  "author": "Jane Smith",
+  "date": "2024-01-20",
+  "excerpt": "Exploring the latest trends and technologies shaping the future of web development.",
+  "content": "content",
+  "tags": ["Web Development", "JavaScript", "React", "Technology"]
+}
