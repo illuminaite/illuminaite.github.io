@@ -1,11 +1,23 @@
 import type { Metadata } from 'next'
-import { Karla } from 'next/font/google'
+import { Karla, Italiana, Inter } from 'next/font/google'
 import './globals.css'
 
 const karla = Karla({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-karla',
+})
+
+const italiana = Italiana({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-italiana',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter',
 })
 
 export const metadata: Metadata = {
@@ -43,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={karla.variable}>
+    <html lang="en" className={`${karla.variable} ${italiana.variable} ${inter.variable}`}>
       <head>
         <link
           rel="stylesheet"

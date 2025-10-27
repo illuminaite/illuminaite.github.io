@@ -4,20 +4,20 @@ import fs from 'fs';
 import path from 'path';
 
 async function getAllBlogs(): Promise<Blog[]> {
-    // Get all blogs from the data/blogs directory
+    // get all blogs from the data/blogs directory
     const blogsDirectory = path.join(process.cwd(), 'data/blogs');
-    
+
     try {
         const files = fs.readdirSync(blogsDirectory);
         const jsonFiles = files.filter(file => file.endsWith('.json'));
-        
+
         const blogs = jsonFiles.map(file => {
             const filePath = path.join(blogsDirectory, file);
             const fileContents = fs.readFileSync(filePath, 'utf8');
             return JSON.parse(fileContents);
         });
-        
-        // Sort blogs by date (newest first)
+
+        // sort blogs by date (newest first)
         return blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     } catch (error) {
         console.error('Error reading blogs:', error);
@@ -27,53 +27,122 @@ async function getAllBlogs(): Promise<Blog[]> {
 
 export default async function BlogsDashboard() {
     const blogs = await getAllBlogs();
-    
-    return (
-        <div className="max-w-6xl mx-auto px-4 py-8">
-            {/* Header */}
-            <h1 className="text-4xl lg:text-5xl font-bold mb-16 gradient-text">
-                blogs
-            </h1>
 
-            {/* Blogs in a 3x3 grid*/}
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {blogs.map((blog) => (
-                    <Link 
-                        key={blog.slug} 
-                        href={`/blogs/${blog.slug}`}
-                        className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
-                    >
-                        <div className="p-6">
-                            <h2 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
-                                {blog.title}
-                            </h2>
-                            <p className="text-gray-600 text-sm mb-3 line-clamp-3">
-                                {blog.excerpt}
-                            </p>
-                            <div className="flex items-center justify-between text-sm text-gray-500">
-                                <span>By {blog.author}</span>
-                            </div>
-                            <div className="mt-3 flex flex-wrap gap-1">
-                                {blog.tags.slice(0, 3).map((tag, index) => (
-                                    <span
-                                        key={index}
-                                        className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </Link>
-                ))}
+    return (
+        <div className="bg-black min-h-screen">
+            {/* Title Section */}
+            <div className="flex flex-col items-start max-w-[1440px] mx-auto px-20 pt-20 pb-16">
+                <h1
+                    className="self-stretch text-white text-[130px] font-normal leading-normal"
+                    style={{
+                        fontFamily: 'Italiana, serif',
+                        letterSpacing: '-2.6px',
+                        WebkitTextStrokeWidth: '1px',
+                        WebkitTextStrokeColor: '#000'
+                    }}
+                >
+                    illuminAI
+                </h1>
+                <p
+                    className="self-stretch text-white text-2xl font-normal leading-[150%] mt-4"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                    Subheading that sets up content, shares more info about the website, or generally gets people psyched to keep scrolling.
+                </p>
             </div>
-            
-            {/* Shows if there are no blogs available yet */}
-            {blogs.length === 0 && (
-                <div className="text-center py-12">
-                    <p className="text-gray-500 text-lg">No blogs available yet.</p>
+
+            {/* Blog Grid */}
+            <div className="max-w-[1440px] mx-auto px-20 pb-24">
+                <div
+                    className="flex flex-wrap"
+                    style={{
+                        maxWidth: '1282px',
+                        rowGap: '32px',
+                        columnGap: '32px',
+                        justifyContent: 'flex-start',
+                        alignItems: 'flex-start',
+                        alignContent: 'flex-start'
+                    }}
+                >
+                    {blogs.map((blog) => (
+                        <Link
+                            key={blog.slug}
+                            href={`/blogs/${blog.slug}`}
+                            className="flex flex-col items-start group"
+                            style={{
+                                width: '404px',
+                                height: '366px',
+                                gap: '24px',
+                                flexShrink: 0
+                            }}
+                        >
+                            {/* Blog Image */}
+                            <div
+                                className="bg-gray-800 overflow-hidden rounded-lg"
+                                style={{
+                                    height: '238px',
+                                    width: '100%',
+                                    flexShrink: 0
+                                }}
+                            >
+                                {blog.image ? (
+                                    <img
+                                        src={blog.image}
+                                        alt={blog.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-gray-600">
+                                        No image
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Blog Content */}
+                            <div
+                                className="flex flex-col items-start w-full"
+                                style={{
+                                    gap: '4px',
+                                    flexShrink: 0
+                                }}
+                            >
+                                <h2
+                                    className="line-clamp-2 group-hover:opacity-80 transition-opacity"
+                                    style={{
+                                        color: '#FFF',
+                                        fontFamily: 'Inter, sans-serif',
+                                        fontSize: '24px',
+                                        fontStyle: 'normal',
+                                        fontWeight: 500,
+                                        lineHeight: '150%'
+                                    }}
+                                >
+                                    {blog.title}
+                                </h2>
+                                <p
+                                    className="text-sm mb-4 line-clamp-2"
+                                    style={{ color: '#828282' }}
+                                >
+                                    {blog.excerpt}
+                                </p>
+                                <div
+                                    className="text-sm"
+                                    style={{ color: '#828282' }}
+                                >
+                                    By {blog.author}
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
-            )}
+
+                {/* Shows if there are no blogs available yet */}
+                {blogs.length === 0 && (
+                    <div className="text-center py-20">
+                        <p className="text-gray-500 text-lg">No blogs available yet.</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
