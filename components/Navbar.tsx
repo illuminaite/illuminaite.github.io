@@ -19,6 +19,8 @@ export default function Navbar() {
           setActiveSection('about')
         } else if (scrollPosition < 2345) {
           setActiveSection('initiatives')
+        } else if (scrollPosition < 3000) {
+          setActiveSection('team')
         } else {
           setActiveSection('')
         }
@@ -46,11 +48,11 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-black h-20 flex justify-center items-center text-lg sticky top-0 z-50">
+    <nav className=" h-20 flex justify-center items-center text-lg sticky top-0 z-50">
       <div className="flex justify-between items-center h-20 z-10 w-full max-w-7xl mx-auto px-12">
         <button
           onClick={() => scrollToSection('home')}
-          className="gradient-text text-xl font-medium cursor-pointer no-underline flex items-center"
+          className="text-white text-xl font-medium cursor-pointer no-underline flex items-center"
         >
           illuminAI
         </button>
@@ -98,12 +100,14 @@ export default function Navbar() {
             </button>
           </li>
           <li className="h-20">
-            <Link
-              href="/events"
-              className="text-primary-light flex items-center justify-center w-32 h-full hover:text-primary-coral transition-all duration-300"
+            <button
+                onClick={() => scrollToSection('team')}
+                className={`text-primary-light flex items-center justify-center w-32 h-full transition-all duration-300 ${
+                    activeSection === 'team' ? 'text-primary-coral' : 'hover:text-primary-coral'
+                }`}
             >
               team
-            </Link>
+            </button>
           </li>
           <li className="flex justify-center items-center px-4 w-full h-20">
             <a
@@ -136,13 +140,12 @@ export default function Navbar() {
             </button>
           </li>
           <li className="my-4">
-            <Link
-              href="/events"
-              onClick={closeMobileMenu}
-              className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
+            <button
+                onClick={() => scrollToSection('team')}
+                className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
             >
-              events
-            </Link>
+              team
+            </button>
           </li>
           <li className="my-4">
             <a
