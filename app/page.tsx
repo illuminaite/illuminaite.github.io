@@ -5,6 +5,7 @@ import Impact from '@/components/Impact'
 import Initiatives from '@/components/Initiatives'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import Articles from '@/components/Articles'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <Impact />
       <Initiatives />
+        <Articles />
       <Contact />
       <Footer />
     </main>
