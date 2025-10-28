@@ -23,9 +23,9 @@ export default function Contact() {
   ]
 
   return (
-      <div className="bg-black py-32 px-8 font-inter" id="contact">
+      <div className=" py-32 px-8 font-inter" id="contact">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl lg:text-4xl font-bold mb-16 text-white">
+          <h1 className="text-3xl lg:text-4xl font-bold mb-16 text-black">
             what people are saying
           </h1>
 

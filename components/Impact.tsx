@@ -9,7 +9,7 @@ export default function Impact() {
   ]
 
   return (
-      <div className="bg-black py-32 px-8 font-inter">
+      <div className="py-32 px-8 font-inter">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl lg:text-4xl font-bold mb-16 text-white">
             our impact
@@ -21,7 +21,7 @@ export default function Impact() {
                     key={index}
                     className="text-center"
                 >
-                  <h2 className="text-7xl lg:text-8xl font-light mb-4 text-white/80">
+                  <h2 className="text-7xl lg:text-8xl font-light mb-4 text-primary-coral">
                     {item.number}
                   </h2>
                   <p className="text-base text-white/90">

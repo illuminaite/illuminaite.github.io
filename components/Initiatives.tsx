@@ -27,9 +27,9 @@ export default function Initiatives() {
   ]
 
   return (
-      <div className="bg-black py-32 px-8" id="initiatives">
+      <div className="py-32 px-8" id="initiatives">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl lg:text-4xl font-bold mb-16 gradient-text">
+          <h1 className="text-3xl lg:text-4xl font-bold mb-16 text-white">
             our initiatives
           </h1>
 
