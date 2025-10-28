@@ -40,7 +40,7 @@ export default function Initiatives() {
                     href={initiative.link}
                     className="block group"
                 >
-                  <div className="relative w-full h-64 mb-6 rounded-lg overflow-hidden">
+                  <div className="relative w-full aspect-square mb-6 rounded-lg overflow-hidden">
                     <Image
                         src={initiative.image}
                         alt={initiative.alt}

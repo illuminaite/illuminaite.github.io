@@ -11,7 +11,7 @@ export default function About() {
       <div className="bg-black py-32 font-inter" id="about">
         {/* Top disciplines scroll - full width */}
         <div className="mb-16 overflow-hidden px-8">
-          <div className="flex gap-8 text-white/60 text-2xl whitespace-nowrap">
+          <div className="flex gap-10 text-white/60 text-3xl whitespace-nowrap font-italiana">
             {topDisciplines.map((discipline, index) => (
                 <span key={index}>{discipline}</span>
             ))}
@@ -50,8 +50,8 @@ export default function About() {
         </div>
 
         {/* Bottom disciplines scroll - full width */}
-        <div className="overflow-hidden px-8">
-          <div className="flex gap-8 text-white/60 text-2xl whitespace-nowrap">
+        <div className="overflow-hidden">
+          <div className="flex gap-6 text-white/60 text-3xl whitespace-nowrap font-italiana">
             {bottomDisciplines.map((discipline, index) => (
                 <span key={index}>{discipline}</span>
             ))}
