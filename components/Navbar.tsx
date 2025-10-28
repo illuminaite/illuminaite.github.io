@@ -52,7 +52,7 @@ export default function Navbar() {
           onClick={() => scrollToSection('home')}
           className="gradient-text text-xl font-medium cursor-pointer no-underline flex items-center"
         >
-          illuminaite
+          illuminAI
         </button>
 
         {/* Mobile menu button */}
@@ -79,16 +79,6 @@ export default function Navbar() {
         <ul className={`hidden lg:flex items-center list-none`}>
           <li className="h-20">
             <button
-              onClick={() => scrollToSection('home')}
-              className={`text-primary-light flex items-center justify-center w-32 h-full transition-all duration-300 ${
-                activeSection === 'home' ? 'text-primary-coral' : 'hover:text-primary-coral'
-              }`}
-            >
-              home
-            </button>
-          </li>
-          <li className="h-20">
-            <button
               onClick={() => scrollToSection('about')}
               className={`text-primary-light flex items-center justify-center w-32 h-full transition-all duration-300 ${
                 activeSection === 'about' ? 'text-primary-coral' : 'hover:text-primary-coral'
@@ -112,7 +102,7 @@ export default function Navbar() {
               href="/events"
               className="text-primary-light flex items-center justify-center w-32 h-full hover:text-primary-coral transition-all duration-300"
             >
-              events
+              team
             </Link>
           </li>
           <li className="flex justify-center items-center px-4 w-full h-20">
@@ -120,7 +110,7 @@ export default function Navbar() {
               href="mailto:illuminaiteacademy@gmail.com"
               className="flex justify-center items-center no-underline py-2.5 px-5 w-full border-none outline-none rounded bg-primary-coral text-primary-light hover:bg-primary-salmon transition-all duration-300"
             >
-              contact us
+              contact
             </a>
           </li>
         </ul>
@@ -129,14 +119,6 @@ export default function Navbar() {
         <ul className={`lg:hidden fixed top-20 left-0 w-full h-screen bg-black flex flex-col items-center justify-start pt-8 transition-all duration-300 ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}>
-          <li className="my-4">
-            <button
-              onClick={() => scrollToSection('home')}
-              className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
-            >
-              home
-            </button>
-          </li>
           <li className="my-4">
             <button
               onClick={() => scrollToSection('about')}
