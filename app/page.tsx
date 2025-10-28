@@ -10,14 +10,14 @@ import Articles from '@/components/Articles'
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
-      <Navbar />
-      <Hero />
-      <About />
-      <Impact />
-      <Initiatives />
+        <Navbar />
+        <Hero />
+        <About />
+        <Initiatives />
+        <Impact />
         <Articles />
-      <Contact />
-      <Footer />
+        <Contact />
+        <Footer />
     </main>
   )
 }
