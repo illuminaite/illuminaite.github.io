@@ -6,6 +6,7 @@ import Link from 'next/link'
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [isTeamSection, setIsTeamSection] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,14 +16,19 @@ export default function Navbar() {
       if (windowWidth > 960) {
         if (scrollPosition < 600) {
           setActiveSection('home')
+          setIsTeamSection(false)
         } else if (scrollPosition < 1400) {
           setActiveSection('about')
+          setIsTeamSection(false)
         } else if (scrollPosition < 2345) {
           setActiveSection('initiatives')
+          setIsTeamSection(false)
         } else if (scrollPosition < 3000) {
           setActiveSection('team')
+          setIsTeamSection(true)
         } else {
           setActiveSection('')
+          setIsTeamSection(true)  // Changed from false to true
         }
       }
     }
@@ -48,66 +54,66 @@ export default function Navbar() {
   }
 
   return (
-    <nav className=" h-20 flex justify-center items-center text-lg sticky top-0 z-50">
-      <div className="flex justify-between items-center h-20 z-10 w-full max-w-7xl mx-auto px-12">
-        <button
-          onClick={() => scrollToSection('home')}
-          className="text-white text-xl font-medium cursor-pointer no-underline flex items-center"
-        >
-          illuminAI
-        </button>
+      <nav className=" h-20 flex justify-center items-center text-lg sticky top-0 z-50">
+        <div className="flex justify-between items-center h-20 z-10 w-full max-w-7xl mx-auto px-12">
+          <button
+              onClick={() => scrollToSection('home')}
+              className={`${isTeamSection ? 'text-black' : 'text-white'} text-xl font-medium cursor-pointer no-underline flex items-center transition-colors duration-300`}
+          >
+            illuminAI
+          </button>
 
         {/* Mobile menu button */}
-        <div className="flex lg:hidden">
-          <button
-            onClick={toggleMobileMenu}
-            className={`flex flex-col justify-around w-6 h-6 cursor-pointer transition-all duration-300 ${
-              isMenuOpen ? 'is-active' : ''
-            }`}
-          >
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMenuOpen ? 'rotate-45 translate-y-2.5' : ''
-            }`}></span>
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMenuOpen ? 'opacity-0' : ''
-            }`}></span>
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMenuOpen ? '-rotate-45 -translate-y-2.5' : ''
-            }`}></span>
-          </button>
-        </div>
-
-        {/* Desktop menu */}
-        <ul className={`hidden lg:flex items-center list-none`}>
-          <li className="h-20">
+          <div className="flex lg:hidden">
             <button
-              onClick={() => scrollToSection('about')}
-              className={`text-primary-light flex items-center justify-center w-32 h-full transition-all duration-300 ${
-                activeSection === 'about' ? 'text-primary-coral' : 'hover:text-primary-coral'
-              }`}
-            >
-              about
-            </button>
-          </li>
-          <li className="h-20">
-            <button
-              onClick={() => scrollToSection('initiatives')}
-              className={`text-primary-light flex items-center justify-center w-32 h-full transition-all duration-300 ${
-                activeSection === 'initiatives' ? 'text-primary-coral' : 'hover:text-primary-coral'
-              }`}
-            >
-              initiatives
-            </button>
-          </li>
-          <li className="h-20">
-            <button
-                onClick={() => scrollToSection('team')}
-                className={`text-primary-light flex items-center justify-center w-32 h-full transition-all duration-300 ${
-                    activeSection === 'team' ? 'text-primary-coral' : 'hover:text-primary-coral'
+                onClick={toggleMobileMenu}
+                className={`flex flex-col justify-around w-6 h-6 cursor-pointer transition-all duration-300 ${
+                    isMenuOpen ? 'is-active' : ''
                 }`}
             >
-              team
+            <span className={`block w-6 h-0.5 ${isTeamSection ? 'bg-black' : 'bg-white'} transition-all duration-300 ${
+                isMenuOpen ? 'rotate-45 translate-y-2.5' : ''
+            }`}></span>
+              <span className={`block w-6 h-0.5 ${isTeamSection ? 'bg-black' : 'bg-white'} transition-all duration-300 ${
+                  isMenuOpen ? 'opacity-0' : ''
+              }`}></span>
+              <span className={`block w-6 h-0.5 ${isTeamSection ? 'bg-black' : 'bg-white'} transition-all duration-300 ${
+                  isMenuOpen ? '-rotate-45 -translate-y-2.5' : ''
+              }`}></span>
             </button>
+          </div>
+
+        {/* Desktop menu */}
+          <ul className={`hidden lg:flex items-center list-none`}>
+            <li className="h-20">
+              <button
+                  onClick={() => scrollToSection('about')}
+                  className={`flex items-center justify-center w-32 h-full transition-all duration-300 ${
+                      isTeamSection ? 'text-black hover:text-black' : (activeSection === 'about' ? 'text-primary-coral' : 'text-primary-light hover:text-primary-coral')
+                  }`}
+              >
+                about
+              </button>
+            </li>
+            <li className="h-20">
+              <button
+                  onClick={() => scrollToSection('initiatives')}
+                  className={`flex items-center justify-center w-32 h-full transition-all duration-300 ${
+                      isTeamSection ? 'text-black hover:text-black' : (activeSection === 'initiatives' ? 'text-primary-coral' : 'text-primary-light hover:text-primary-coral')
+                  }`}
+              >
+                initiatives
+              </button>
+            </li>
+            <li className="h-20">
+              <button
+                  onClick={() => scrollToSection('team')}
+                  className={`flex items-center justify-center w-32 h-full transition-all duration-300 ${
+                      isTeamSection ? 'text-black hover:text-black' : (activeSection === 'team' ? 'text-primary-coral' : 'text-primary-light hover:text-primary-coral')
+                  }`}
+              >
+                team
+              </button>
           </li>
           <li className="flex justify-center items-center px-4 w-full h-20">
             <a
@@ -120,30 +126,30 @@ export default function Navbar() {
         </ul>
 
         {/* Mobile menu */}
-        <ul className={`lg:hidden fixed top-20 left-0 w-full h-screen bg-black flex flex-col items-center justify-start pt-8 transition-all duration-300 ${
-          isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}>
-          <li className="my-4">
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
-            >
+          <ul className={`lg:hidden fixed top-20 left-0 w-full h-screen bg-black flex flex-col items-center justify-start pt-8 transition-all duration-300 ${
+              isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          }`}>
+            <li className="my-4">
+              <button
+                  onClick={() => scrollToSection('about')}
+                  className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
+              >
               about
-            </button>
-          </li>
-          <li className="my-4">
-            <button
-              onClick={() => scrollToSection('initiatives')}
-              className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
-            >
-              initiatives
-            </button>
-          </li>
-          <li className="my-4">
-            <button
-                onClick={() => scrollToSection('team')}
-                className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
-            >
+              </button>
+            </li>
+            <li className="my-4">
+              <button
+                  onClick={() => scrollToSection('initiatives')}
+                  className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
+              >
+                initiatives
+              </button>
+            </li>
+            <li className="my-4">
+              <button
+                  onClick={() => scrollToSection('team')}
+                  className="text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
+              >
               team
             </button>
           </li>
