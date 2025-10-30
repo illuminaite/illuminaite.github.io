@@ -55,7 +55,7 @@ export default function Navbar() {
 
   return (
       <nav className=" h-20 flex justify-center items-center text-lg sticky top-0 z-50">
-        <div className="flex justify-between items-center h-20 z-10 w-full max-w-7xl mx-auto px-12">
+        <div className="flex justify-between items-center h-20 z-10 w-full px-8">
           <button
               onClick={() => scrollToSection('home')}
               className={`${isTeamSection ? 'text-black' : 'text-white'} text-xl font-medium cursor-pointer no-underline flex items-center transition-colors duration-300`}
