@@ -1,19 +1,22 @@
+'use client'
 export default function About() {
   const topDisciplines = [
-    'engineering - computer science - philosophy - business - political science - mathematics - criminology'
+    'engineering - computer science - philosophy - business - political science - mathematics - criminology -'
   ]
 
   const bottomDisciplines = [
-    'architecture - cinema studies - robotics - life science - biological chemistry - statistics - history - bioethics'
+    'architecture - cinema studies - robotics - life science - biological chemistry - statistics - history - bioethics -'
   ]
 
   return (
       <div className="py-32 font-inter" id="about">
         {/* Top disciplines scroll - full width */}
         <div className="mb-16 overflow-hidden px-8">
-          <div className="flex gap-10 text-white/80 text-3xl whitespace-nowrap font-italiana">
-            {topDisciplines.map((discipline, index) => (
-                <span key={index}>{discipline}</span>
+          <div className="flex gap-2 text-white/80 text-3xl whitespace-nowrap font-italiana animate-scroll">
+            {[...Array(10)].map((_, repeatIndex) => (
+                topDisciplines.map((discipline, index) => (
+                    <span key={`${repeatIndex}-${index}`}>{discipline}</span>
+                ))
             ))}
           </div>
         </div>
@@ -51,9 +54,11 @@ export default function About() {
 
         {/* Bottom disciplines scroll - full width */}
         <div className="overflow-hidden">
-          <div className="flex gap-6 text-white/80 text-3xl whitespace-nowrap font-italiana">
-            {bottomDisciplines.map((discipline, index) => (
-                <span key={index}>{discipline}</span>
+          <div className="flex gap-2 text-white/80 text-3xl whitespace-nowrap font-italiana animate-scroll-reverse">
+            {[...Array(10)].map((_, repeatIndex) => (
+                bottomDisciplines.map((discipline, index) => (
+                    <span key={`${repeatIndex}-${index}`}>{discipline}</span>
+                ))
             ))}
           </div>
         </div>
