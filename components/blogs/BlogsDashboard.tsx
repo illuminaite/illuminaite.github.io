@@ -30,25 +30,46 @@ export default async function BlogsDashboard() {
 
     return (
         <div className="bg-black min-h-screen">
-            {/* Title Section */}
-            <div className="flex flex-col items-start max-w-[1440px] mx-auto px-20 pt-20 pb-16">
-                <h1
-                    className="self-stretch text-white text-[130px] font-normal leading-normal"
+            {/*Title */}
+            <div className="flex justify-between items-center max-w-[1440px] mx-auto px-20 pt-20 pb-16 gap-12">
+                {/* Text Content */}
+                <div className="flex flex-col items-start flex-1">
+                    <h1
+                        className="self-stretch text-white text-[130px] font-normal leading-normal"
+                        style={{
+                            fontFamily: 'Italiana, serif',
+                            letterSpacing: '-2.6px',
+                            WebkitTextStrokeWidth: '1px',
+                            WebkitTextStrokeColor: '#000'
+                        }}
+                    >
+                        illuminAI
+                    </h1>
+                    <p
+                        className="self-stretch text-white text-2xl font-normal leading-[150%] mt-4"
+                        style={{ fontFamily: 'Inter, sans-serif' }}
+                    >
+                        Subheading that sets up content, shares more info about the website, or generally gets people psyched to keep scrolling.
+                    </p>
+                </div>
+
+                {/* GIF */}
+                <div
+                    className="overflow-hidden rounded-lg"
                     style={{
-                        fontFamily: 'Italiana, serif',
-                        letterSpacing: '-2.6px',
-                        WebkitTextStrokeWidth: '1px',
-                        WebkitTextStrokeColor: '#000'
+                        width: '407px',
+                        height: '407px',
+                        flexShrink: 0,
+                        aspectRatio: '1/1',
+                        background: 'black'
                     }}
                 >
-                    illuminAI
-                </h1>
-                <p
-                    className="self-stretch text-white text-2xl font-normal leading-[150%] mt-4"
-                    style={{ fontFamily: 'Inter, sans-serif' }}
-                >
-                    Subheading that sets up content, shares more info about the website, or generally gets people psyched to keep scrolling.
-                </p>
+                    <img
+                        src={encodeURI('/images/balancing gif.gif')}
+                        alt="Balancing animation"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
             </div>
 
             {/* Blog Grid */}
@@ -120,14 +141,27 @@ export default async function BlogsDashboard() {
                                     {blog.title}
                                 </h2>
                                 <p
-                                    className="text-sm mb-4 line-clamp-2"
-                                    style={{ color: '#828282' }}
+                                    className="line-clamp-2"
+                                    style={{
+                                        color: '#828282',
+                                        fontFamily: 'Inter, sans-serif',
+                                        fontSize: '20px',
+                                        fontStyle: 'normal',
+                                        fontWeight: 500,
+                                        lineHeight: '150%'
+                                    }}
                                 >
                                     {blog.excerpt}
                                 </p>
                                 <div
-                                    className="text-sm"
-                                    style={{ color: '#828282' }}
+                                    style={{
+                                        color: '#828282',
+                                        fontFamily: 'Inter, sans-serif',
+                                        fontSize: '20px',
+                                        fontStyle: 'normal',
+                                        fontWeight: 500,
+                                        lineHeight: '150%'
+                                    }}
                                 >
                                     By {blog.author}
                                 </div>
