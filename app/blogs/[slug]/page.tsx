@@ -12,11 +12,11 @@ interface BlogPageProps {
 
 export async function generateStaticParams() {
     const blogsDirectory = path.join(process.cwd(), 'data/blogs');
-    
+
     try {
         const files = fs.readdirSync(blogsDirectory);
         const jsonFiles = files.filter(file => file.endsWith('.json'));
-        
+
         return jsonFiles.map(file => ({
             slug: file.replace('.json', '')
         }));
@@ -37,13 +37,34 @@ async function getBlogBySlug(slug: string): Promise<Blog | null> {
     }
 }
 
+async function getAllBlogs(): Promise<Blog[]> {
+    const blogsDirectory = path.join(process.cwd(), 'data/blogs');
+
+    try {
+        const files = fs.readdirSync(blogsDirectory);
+        const jsonFiles = files.filter(file => file.endsWith('.json'));
+
+        const blogs = jsonFiles.map(file => {
+            const filePath = path.join(blogsDirectory, file);
+            const fileContents = fs.readFileSync(filePath, 'utf8');
+            return JSON.parse(fileContents);
+        });
+
+        return blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    } catch (error) {
+        console.error('Error reading blogs:', error);
+        return [];
+    }
+}
+
 export default async function DynamicBlogPage({ params }: BlogPageProps) {
     const { slug } = await params;
     const blog = await getBlogBySlug(slug);
-    
+    const allBlogs = await getAllBlogs();
+
     if (!blog) {
         notFound();
     }
-    
-    return <BlogPage blog={blog} />;
+
+    return <BlogPage blog={blog} relatedBlogs={allBlogs} />;
 }

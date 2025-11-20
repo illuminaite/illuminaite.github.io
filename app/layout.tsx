@@ -1,7 +1,12 @@
 import type { Metadata } from 'next'
-import { Karla, Italiana, Inter } from 'next/font/google'
+import { Karla, Italiana, Inter, Caudex } from 'next/font/google'
 import './globals.css'
 
+const caudex = Caudex({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-caudex',
+})
 const karla = Karla({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
