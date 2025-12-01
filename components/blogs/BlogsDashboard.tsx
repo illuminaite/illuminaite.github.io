@@ -30,50 +30,209 @@ export default async function BlogsDashboard() {
 
     return (
         <div className="bg-black min-h-screen">
-            {/*Title */}
-            <div className="flex justify-between items-center max-w-[1440px] mx-auto px-20 pt-20 pb-16 gap-12">
-                {/* Text Content */}
-                <div className="flex flex-col items-start flex-1">
-                    <h1
-                        className="self-stretch text-white text-[130px] font-normal leading-normal"
-                        style={{
-                            fontFamily: 'Italiana, serif',
-                            letterSpacing: '-2.6px',
-                            WebkitTextStrokeWidth: '1px',
-                            WebkitTextStrokeColor: '#000'
-                        }}
-                    >
-                        illuminAI
-                    </h1>
-                    <p
-                        className="self-stretch text-white text-2xl font-normal leading-[150%] mt-4"
-                        style={{ fontFamily: 'Inter, sans-serif' }}
-                    >
-                        Subheading that sets up content, shares more info about the website, or generally gets people psyched to keep scrolling.
-                    </p>
-                </div>
 
-                {/* GIF */}
-                <div
-                    className="overflow-hidden rounded-lg"
-                    style={{
-                        width: '407px',
-                        height: '407px',
-                        flexShrink: 0,
-                        aspectRatio: '1/1',
-                        background: 'black'
-                    }}
-                >
-                    <img
-                        src={encodeURI('/images/balancing gif.gif')}
-                        alt="Balancing animation"
-                        className="w-full h-full object-cover"
-                    />
+            {/* Header Section */}
+            <div className="bg-white">
+                {/* Side borders container */}
+                <div className="bg-black">
+                    <div className="max-w-[1440px] mx-auto bg-black">
+                        <div style={{ padding: '24px 60px' }}>
+                            {/* illuminAI, AI ETHICS & SOCIETY, and Date */}
+                            <div style={{
+                                border: '2px solid white',
+                                marginLeft: '-60px',
+                                marginRight: '-60px',
+                                paddingLeft: '60px',
+                                paddingRight: '60px',
+                                paddingTop: '24px',
+                            }}>
+                                <div className="flex justify-between items-end">
+                                    {/* Left side: illuminAI and AI ETHICS & SOCIETY with red divider */}
+                                    <div className="flex items-end" style={{ gap: '24px' }}>
+                                        <h1
+                                            style={{
+                                                color: '#FFFFFF',
+                                                fontFamily: 'Italiana, serif',
+                                                fontSize: '120px',
+                                                fontWeight: 400,
+                                                lineHeight: '1',
+                                                letterSpacing: '-2.4px',
+                                                margin: 0,
+                                                whiteSpace: 'nowrap'
+                                            }}
+                                        >
+                                            illuminAI
+                                        </h1>
+                                        {/* Vertical divider */}
+                                        <div
+                                            style={{
+                                                width: '2px',
+                                                height: '112px',
+                                                background: '#FFFFFF',
+                                                marginBottom: '2px'
+                                            }}
+                                        />
+                                        <span
+                                            style={{
+                                                color: '#FFFFFF',
+                                                fontFamily: 'Italiana, serif',
+                                                fontSize: '45px',
+                                                fontWeight: 400,
+                                                lineHeight: '1',
+                                                letterSpacing: '-0.9px',
+                                                marginBottom: '8px',
+                                                whiteSpace: 'nowrap'
+                                            }}
+                                        >
+                                            AI ETHICS & SOCIETY
+                                        </span>
+                                    </div>
+
+                                    {/* Right side: Date - aligned to bottom */}
+                                    <div
+                                        style={{
+                                            color: '#FFFFFF',
+                                            fontFamily: 'Caudex, serif',
+                                            fontSize: '28px',
+                                            fontWeight: 400,
+                                            lineHeight: '1',
+                                            letterSpacing: '-0.56px',
+                                            textAlign: 'right',
+                                            marginBottom: '8px',
+                                            whiteSpace: 'nowrap'
+                                        }}
+                                    >
+                                        {new Date().toLocaleDateString('en-US', {
+                                            weekday: 'long',
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        }).toUpperCase()}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Tagline with double borders */}
+                            <div className="relative" style={{ paddingTop: '16px', paddingBottom: '16px' }}>
+                                {/* Top thick border */}
+                                <div
+                                    style={{
+                                        height: '5px',
+                                        background: '#FFFFFF',
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: '-60px',
+                                        right: '-60px'
+                                    }}
+                                />
+                                {/* Top thin border */}
+                                <div
+                                    style={{
+                                        height: '1px',
+                                        background: '#FFFFFF',
+                                        position: 'absolute',
+                                        top: '8px',
+                                        left: '-60px',
+                                        right: '-60px'
+                                    }}
+                                />
+
+                                <p
+                                    style={{
+                                        color: '#FFFFFF',
+                                        fontFamily: 'Caudex, serif',
+                                        fontSize: '26px',
+                                        fontWeight: 400,
+                                        lineHeight: '1.2',
+                                        letterSpacing: '-0.52px',
+                                        margin: 0,
+                                        padding: '6px 0',
+                                        whiteSpace: 'nowrap',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis'
+                                    }}
+                                >
+                                    We bring curious people exploring interdisciplinary challenges of the ethics and societal impacts of AI, together.
+                                </p>
+
+                                {/* Bottom thin border */}
+                                <div
+                                    style={{
+                                        height: '1px',
+                                        background: '#FFFFFF',
+                                        position: 'absolute',
+                                        bottom: '8px',
+                                        left: '-60px',
+                                        right: '-60px'
+                                    }}
+                                />
+                                {/* Bottom thick border */}
+                                <div
+                                    style={{
+                                        height: '5px',
+                                        background: '#FFFFFF',
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: '-60px',
+                                        right: '-60px'
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {/* Blog Grid */}
-            <div className="max-w-[1440px] mx-auto px-20 pb-24">
+            <div className="max-w-[1440px] mx-auto mt-[-25px]">
+                <div style={{ border: '2px solid white' }}>
+                    {/* Articles Title and Image Section */}
+                    <div className="px-20 py-24">
+                <div className="flex w-full">
+                    {/* Left side: Articles Title */}
+                    <div className="w-1/2 flex flex-col justify-left">
+                        <h2
+                            style={{
+                                color: '#FFFFFF',
+                                fontFamily: 'Italiana, serif',
+                                fontSize: '120px',
+                                fontWeight: 400,
+                                lineHeight: '1',
+                                letterSpacing: '-2.4px',
+                                margin: 0,
+                                textTransform: 'lowercase'
+                            }}
+                        >
+                            articles
+                        </h2>
+                        <p
+                            style={{
+                                color: '#FFFFFF',
+                                fontFamily: 'Caudex, serif',
+                                fontSize: '26px',
+                                fontWeight: 400,
+                                lineHeight: '1.2',
+                                letterSpacing: '-0.52px',
+                                margin: 0,
+                                padding: '6px 0',
+                                whiteSpace: 'wrap',
+                            }}
+                        >
+                            Subheading that sets up context, shares more info about the website, or generally gets people psyched to keep scrolling. 
+                        </p>
+                    </div>
+                    {/* Right side: Image */}
+                    <div className="w-1/2">
+                        <img
+                            src="/images/blogs_dashboard_image.png"
+                            alt="Blogs Dashboard"
+                            className="w-[80%] h-full object-cover mx-auto"
+                        />
+                    </div>
+                </div>
+            </div>
+
+                    {/* Blog Grid */}
+                    <div className="px-20 pb-24">
                 <div
                     className="flex flex-wrap"
                     style={{
@@ -170,12 +329,14 @@ export default async function BlogsDashboard() {
                     ))}
                 </div>
 
-                {/* Shows if there are no blogs available yet */}
-                {blogs.length === 0 && (
-                    <div className="text-center py-20">
-                        <p className="text-gray-500 text-lg">No blogs available yet.</p>
+                        {/* Shows if there are no blogs available yet */}
+                        {blogs.length === 0 && (
+                            <div className="text-center py-20">
+                                <p className="text-gray-500 text-lg">No blogs available yet.</p>
+                            </div>
+                        )}
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );
