@@ -232,12 +232,12 @@ export default async function BlogsDashboard() {
             </div>
 
                     {/* Blog Grid */}
-                    <div className="px-20 pb-24">
+                <div className="px-20 pb-24">
                 <div
                     className="flex flex-wrap"
                     style={{
                         maxWidth: '1282px',
-                        rowGap: '32px',
+                        rowGap: '96px',
                         columnGap: '32px',
                         justifyContent: 'flex-start',
                         alignItems: 'flex-start',
