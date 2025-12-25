@@ -162,9 +162,11 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen bg-white overflow-hidden" id="home">
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-[2vw] min-w-8 bg-black" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-[2vw] min-w-8 bg-black" />
 
-            <div className="relative z-10 container mx-auto px-8 py-8 max-w-6xl">
-                <div className="flex justify-between items-baseline">
+            <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pt-8 pb-6">
+                <div className="flex justify-between items-baseline w-full">
                     <div className="flex items-baseline gap-2">
                         <h1 className="text-5xl md:text-6xl font-italiana font-light tracking-tight">
                             <span className="text-[#BF2929]">illumin</span>
@@ -178,10 +180,10 @@ export default function Hero() {
                     <p className="text-sm md:text-base text-black font-caudex uppercase">{currentDate}</p>
                 </div>
 
-                <div className="mt-0 mb-32 relative">
+                <div className="mt-2 mb-24 relative w-full">
                     <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
                     <div className="border-t border-black absolute top-1 left-0 right-0"></div>
-                    <div className="py-2 px-0">
+                    <div className="py-3">
                         <p className="text-base md:text-lg text-black leading-relaxed font-light">
                             We bring curious people exploring interdisciplinary challenges of the ethics and societal impacts of AI,
                             together.
@@ -190,7 +192,9 @@ export default function Hero() {
                     <div className="border-b border-black absolute bottom-1 left-0 right-0"></div>
                     <div className="border-b-[3px] border-black absolute bottom-0 left-0 right-0"></div>
                 </div>
+            </div>
 
+            <div className="relative z-10 container mx-auto px-8 pb-8 max-w-6xl">
                 <div className="max-w-2xl ml-24 flex flex-col justify-center min-h-[50vh] space-y-16">
                     <div>
                         <h2 className="text-3xl md:text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
@@ -209,6 +213,20 @@ export default function Hero() {
                             AI ETHICS CONFERENCE
                         </h2>
                     </div>
+                </div>
+            </div>
+
+            <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pb-12">
+                <div className="relative mt-10 w-full">
+                    <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
+                    <div className="border-t border-black absolute top-1 left-0 right-0"></div>
+                    <div className="py-3">
+                        <p className="text-base md:text-lg text-black leading-relaxed font-light">
+                            engineering - computer science - philosophy - business - political science - mathematics - criminology
+                        </p>
+                    </div>
+                    <div className="border-b border-black absolute bottom-1 left-0 right-0"></div>
+                    <div className="border-b-[3px] border-black absolute bottom-0 left-0 right-0"></div>
                 </div>
             </div>
         </section>
