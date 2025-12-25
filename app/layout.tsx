@@ -52,8 +52,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={`${karla.className} font-karla antialiased bg-black min-h-screen`}>
-        {children}
+      <body
+          className={`${karla.className} font-karla antialiased bg-black min-h-screen flex justify-center px-[1px] py-[1px]`}
+      >
+      <main className="w-full max-w-[1400px] bg-white min-h-fit shadow-[0_0_0_1px_#000]">
+          {children}
+      </main>
       </body>
     </html>
   )

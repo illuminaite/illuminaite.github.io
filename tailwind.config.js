@@ -11,6 +11,7 @@ module.exports = {
         primary: {
           salmon: '#ff8177',
           coral: '#f48b8b',
+            lightRed: '#BF2929',
           darkRed: '#8b0000',
           light: '#fff5f5',
         },
@@ -18,7 +19,9 @@ module.exports = {
         black: '#000000',
       },
       fontFamily: {
-        karla: ['Karla', 'sans-serif'],
+          karla: ['Karla', 'sans-serif'],
+          italiana: ['Italiana', 'serif'],
+          caudex: ['Caudex', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
