@@ -22,6 +22,7 @@ module.exports = {
           karla: ['Karla', 'sans-serif'],
           italiana: ['Italiana', 'serif'],
           caudex: ['Caudex', 'serif'],
+          inter: ['Inter', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
