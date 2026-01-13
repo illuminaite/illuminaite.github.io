@@ -1,52 +1,67 @@
-import Image from 'next/image'
-
+'use client'
 export default function About() {
+  const topDisciplines = [
+    'engineering - computer science - philosophy - business - political science - mathematics - criminology -'
+  ]
+
+  const bottomDisciplines = [
+    'architecture - cinema studies - robotics - life science - biological chemistry - statistics - history - bioethics -'
+  ]
+
   return (
-    <div className="bg-black py-32 px-8" id="about">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
-          {/* Image container */}
-          <div className="flex-1 flex justify-center">
-            <div className="relative w-80 h-80 bg-gradient-to-br from-primary-salmon to-primary-coral rounded-2xl flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
-              <Image
-                src="/images/balancing gif.gif"
-                alt="human balancing bags animated gif"
-                width={300}
-                height={300}
-                className="rounded-xl"
-                unoptimized
-              />
+      <div className="py-32 font-inter" id="about">
+        {/* Top disciplines scroll - full width */}
+        <div className="mb-16 overflow-hidden px-8">
+          <div className="flex gap-2 text-white/80 text-3xl whitespace-nowrap font-italiana animate-scroll">
+            {[...Array(10)].map((_, repeatIndex) => (
+                topDisciplines.map((discipline, index) => (
+                    <span key={`${repeatIndex}-${index}`}>{discipline}</span>
+                ))
+            ))}
+          </div>
+        </div>
+
+        {/* Main content - centered and constrained */}
+        <div className="max-w-5xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+            {/* Our Mission */}
+            <div className="text-white">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                our mission
+              </h1>
+              <h2 className="text-xl mb-6 font-normal">
+                find creative ways to intersect artificial intelligence (AI) ethics with any discipline out there
+              </h2>
+              <p className="text-base leading-relaxed text-white/90">
+                we believe everyone, no matter what major, should have the liberty to use these powerful technologies efficiently and ethically. we aim to lower the barriers of entry into the tech field through hosting accessible, hybrid events and growing a deeply connected online community.
+              </p>
+            </div>
+
+            {/* Our Culture */}
+            <div className="text-white">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                our culture
+              </h1>
+              <h2 className="text-xl mb-6 font-normal">
+                collaborative, connected, laid back, rewarding, & human
+              </h2>
+              <p className="text-base leading-relaxed text-white/90">
+                anyone is welcome to join us and become a "lumen". whether you are a dedicated team member, attendee at our workshops, guest speaker at our event, participant in our competition, or subscriber of our blog posts/YouTube channel, you contribute invaluably to the illuminAI community.
+              </p>
             </div>
           </div>
+        </div>
 
-          {/* Content */}
-          <div className="flex-1 text-primary-light">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4 gradient-text">
-              our mission
-            </h1>
-            <h2 className="text-xl lg:text-2xl font-medium mb-8 text-primary-light/80">
-              find creative ways to intersect computer science and artificial intelligence 
-              with any discipline out there (law, art, medicine...)
-            </h2>
-            <p className="text-lg mb-12 text-primary-light/70 leading-relaxed">
-              we believe everyone, no matter what major, should have the liberty to use these powerful technologies efficiently and ethically. 
-              we aim to lower the barriers of entry into the tech field through hosting accessible, hybrid events and growing a deeply connected
-              online community.
-            </p>
-
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4 gradient-text">
-              our culture
-            </h1>
-            <h2 className="text-xl lg:text-2xl font-medium mb-8 text-primary-light/80">
-              collaborative, connected, laid back, rewarding, &amp; human
-            </h2>
-            <p className="text-lg text-primary-light/70 leading-relaxed">
-              anyone is welcome to join us and become a &ldquo;lumen&rdquo;. whether you are an attendee at our workshops, guest speaker at our event, volunteer at our 
-              competition, or member of our discord server, you contribute invaluably to the illuminaite community.
-            </p>
+        {/* Bottom disciplines scroll - full width */}
+        <div className="overflow-hidden">
+          <div className="flex gap-2 text-white/80 text-3xl whitespace-nowrap font-italiana animate-scroll-reverse">
+            {[...Array(10)].map((_, repeatIndex) => (
+                bottomDisciplines.map((discipline, index) => (
+                    <span key={`${repeatIndex}-${index}`}>{discipline}</span>
+                ))
+            ))}
           </div>
         </div>
       </div>
-    </div>
   )
 }

@@ -19,6 +19,9 @@ module.exports = {
       },
       fontFamily: {
         karla: ['Karla', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        italiana: ['Italiana', 'serif'],
+        caudex: ['Caudex', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
