@@ -1,33 +1,18 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import blog1Data from '@/data/blogs/blog1.json';
+import type { Blog } from '@/types/blog';
 
 export default function Hero() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [currentDate, setCurrentDate] = useState('');
-    const miniArticles = [
-        {
-            title: 'TITLE',
-            intro: 'Brief intro to the article',
-            author: '[AUTHOR NAME]',
-            image:
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80',
-        },
-        {
-            title: 'TITLE',
-            intro: 'Brief intro to the article',
-            author: '[AUTHOR NAME]',
-            image:
-                'https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80',
-        },
-        {
-            title: 'TITLE',
-            intro: 'Brief intro to the article',
-            author: '[AUTHOR NAME]',
-            image:
-                'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80',
-        },
-    ];
+    const main_blog = blog1Data as Blog;
+    const highlighted_blog1 = blog1Data as Blog;
+    const highlighted_blog2 = blog1Data as Blog;
+    const highlighted_blog3 = blog1Data as Blog;
+    const highlightedBlogs = [highlighted_blog1, highlighted_blog2, highlighted_blog3];
 
     useEffect(() => {
         // date
@@ -348,42 +333,44 @@ export default function Hero() {
 
             <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pb-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                    <div className="lg:col-span-7">
-                        <div className="border border-black/40 bg-white/90 shadow-[0_12px_25px_rgba(0,0,0,0.12)] rounded-sm overflow-hidden flex flex-col max-h-[420px]">
+                    <Link href={`/blogs/${main_blog.slug}/`} className="lg:col-span-7 block group">
+                        <div className="border border-black/40 bg-white/90 shadow-[0_12px_25px_rgba(0,0,0,0.12)] rounded-sm overflow-hidden flex flex-col transition-shadow group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.15)]">
                             <div className="w-full bg-neutral-100 aspect-[16/9] max-h-[320px]">
                                 <div
                                     className="h-full w-full bg-cover bg-center"
                                     style={{
-                                        backgroundImage:
-                                            "url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80')",
+                                        backgroundImage: main_blog.image
+                                            ? `url('${main_blog.image}')`
+                                            : undefined,
                                     }}
                                 />
                             </div>
                             <div className="p-4 sm:p-4">
-                                <h3 className="text-2xl sm:text-3xl font-caudex text-black leading-tight">TITLE</h3>
-                                <p className="text-base sm:text-lg text-black mt-1">Brief intro to the article</p>
-                                <p className="text-sm text-black mt-2">by [AUTHOR NAME]</p>
+                                <h3 className="text-2xl sm:text-3xl font-caudex text-black leading-tight">{main_blog.title}</h3>
+                                <p className="text-base sm:text-lg text-black mt-1">{main_blog.excerpt}</p>
+                                <p className="text-sm text-black mt-2">by {main_blog.author}</p>
                             </div>
                         </div>
-                    </div>
+                    </Link>
 
                     <div className="lg:col-span-5">
                         <div className="border border-black/40 bg-white/95 shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm p-4 sm:p-5 flex flex-col gap-5">
-                            {miniArticles.map((item, idx) => (
-                                <div
+                            {highlightedBlogs.map((item, idx) => (
+                                <Link
                                     key={idx}
-                                    className="flex items-center justify-between gap-4 border border-black/20 rounded-sm px-3 py-3 bg-white"
+                                    href={`/blogs/${item.slug}/`}
+                                    className="flex items-center justify-between gap-4 border border-black/20 rounded-sm px-3 py-3 bg-white transition-shadow hover:shadow-md"
                                 >
                                     <div className="flex-1">
                                         <h4 className="text-base font-semibold text-black leading-tight">{item.title}</h4>
-                                        <p className="text-sm text-black mt-1 leading-snug">{item.intro}</p>
+                                        <p className="text-sm text-black mt-1 leading-snug">{item.excerpt}</p>
                                         <p className="text-xs text-black mt-3">by {item.author}</p>
                                     </div>
                                     <div
                                         className="h-20 w-24 sm:w-28 shrink-0 rounded-[6px] overflow-hidden border border-black/20 bg-cover bg-center"
-                                        style={{ backgroundImage: `url(${item.image})` }}
+                                        style={{ backgroundImage: item.image ? `url(${item.image})` : undefined }}
                                     />
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
