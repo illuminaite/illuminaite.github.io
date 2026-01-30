@@ -46,132 +46,206 @@ export default function Hero() {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const fontSize = 14;      // glyph size
-        const rowSpacing = 10;    // vertical density (smaller = more condensed)
+        // Binary pattern matching the image - three columns
+        const leftColumn = [
+            '   1001',
+            ' 01000001',
+            '10101101001010100101011010011',
+            ' 10100011',
+            '  001110',
+            '   0011',
+            '   0011',
+            '   1001',
+            '   1011',
+            '   0101',
+            '   1010',
+            '   1001',
+            '   0000',
+            '   0000',
+            '   1011',
+            '   1011',
+            '   0111',
+            '   0101',
+            '   1100',
+            '   1111',
+            '   0010',
+            '   0000',
+            '   0000',
+            '   1011',
+            '   1011',
+            '   0111',
+            '   1101',
+            '   0110',
+            '   1111',
+            '  001001',
+            ' 0      1',
+            '0        0',
+            ' 0      0',
+            '  101001'
+        ];
+
+        const middleColumn = [
+            '   1000',
+            ' 01000001',
+            '',
+            ' 01000010',
+            '  101010',
+            '   0101',
+            '   0001',
+            '   0101',
+            '   1011',
+            '   0110',
+            '   0001',
+            '   0010',
+            '   0010',
+            '   0111',
+            '   1011',
+            '   1011',
+            '   0111',
+            '   0101',
+            '   1100',
+            '   1101',
+            '   0111',
+            '   1001',
+            '   1010',
+            '   1111',
+            '   0110',
+            '   1011',
+            '   1110',
+            '   1111',
+            '   0110',
+            '  001001',
+            ' 01000010',
+            '01010100101010100010101010000',
+            ' 01000110',
+            '   1101'
+        ];
+
+        const rightColumn = [
+            '  010101',
+            ' 1      1',
+            '0        0',
+            ' 0      1',
+            '  001110',
+            '   0111',
+            '   0101',
+            '   0001',
+            '   0001',
+            '   0000',
+            '   0000',
+            '   1011',
+            '   1011',
+            '   0111',
+            '   0010',
+            '   0001',
+            '   0101',
+            '   0010',
+            '   0110',
+            '   0111',
+            '   0011',
+            '   1101',
+            '   1001',
+            '   1010',
+            '   1111',
+            '   0010',
+            '   1111',
+            '   1110',
+            '   1011',
+            '  001001',
+            ' 10100000',
+            '',
+            ' 10100000',
+            '   0110'
+        ];
+
+        const fontSize = 16;
+        const lineHeight = 16;
+        let animationCounter = 0;
+        let animationFrame: number;
+
+        // Find the maximum length across all columns for animation
+        const maxLength = Math.max(
+            ...leftColumn.map(s => s.length),
+            ...middleColumn.map(s => s.length),
+            ...rightColumn.map(s => s.length)
+        );
+
+        const staggerDelay = 2; // Number of animation steps to delay each row
 
         const resizeCanvas = () => {
             const dpr = window.devicePixelRatio || 1;
+            const topY = 200;
+            const minHeight = topY + (leftColumn.length * lineHeight) + 50; // Add 50px buffer
+            const canvasHeight = Math.max(window.innerHeight, minHeight);
+            
             canvas.width = Math.floor(window.innerWidth * dpr);
-            canvas.height = Math.floor(window.innerHeight * dpr);
+            canvas.height = Math.floor(canvasHeight * dpr);
             canvas.style.width = `${window.innerWidth}px`;
-            canvas.style.height = `${window.innerHeight}px`;
+            canvas.style.height = `${canvasHeight}px`;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        };
-
-        const randBit = () => (Math.random() > 0.5 ? '1' : '0');
-
-        // draw helpers
-        const drawBit = (x: number, row: number, topY: number) => {
-            ctx.fillText(randBit(), x, topY + row * rowSpacing);
-        };
-
-        const drawSegments = (
-            x: number,
-            topY: number,
-            segments: { start: number; count: number }[]
-        ) => {
-            segments.forEach((seg) => {
-                for (let i = 0; i < seg.count; i++) {
-                    drawBit(x, seg.start + i, topY);
-                }
-            });
-        };
-
-        const drawCapDots = (
-            baseX: number,
-            topY: number,
-            rows: number[],
-            offsets: number[]
-        ) => {
-            rows.forEach((r) => {
-                offsets.forEach((off) => {
-                    drawBit(baseX + off * fontSize, r, topY);
-                });
-            });
         };
 
         const draw = () => {
             ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            ctx.fillStyle = '#bf2929';
+            ctx.font = `bold ${fontSize}px "Courier Prime", monospace`;
 
-            ctx.fillStyle = '#d32f2f';
-            ctx.font = `${fontSize}px monospace`;
+            const startX = window.innerWidth * 0.55;
+            const columnSpacing = 180;
+            const topY = 200;
 
-            const startX = window.innerWidth * 0.40; // move shape left/right
-            const columnSpacing = 90;
-
-            const x1 = startX;
-            const x2 = startX + columnSpacing;
-            const x3 = startX + columnSpacing * 2;
-
-            const topY = 220;
-
-            const availableH = window.innerHeight - topY - 40;
-            const totalRows = Math.max(60, Math.floor(availableH / rowSpacing));
-
-            const midEnd = totalRows - 18;
-            const bottomRingBase = totalRows - 14;
-            const tailRow = totalRows - 4;
-
-            // ---- Pillars ----
-            const col1 = [
-                { start: 0, count: 4 },
-                { start: 6, count: 10 },
-                { start: 18, count: 10 },
-                { start: 30, count: 8 },
-                { start: 40, count: Math.max(10, midEnd - 40) },
-            ];
-
-            const col2 = [
-                { start: 0, count: 4 },
-                { start: 6, count: 10 },
-                { start: 18, count: 10 },
-                { start: 30, count: 8 },
-                { start: 40, count: Math.max(18, midEnd - 40) },
-            ];
-
-            const col3 = [
-                { start: 0, count: 6 },
-                { start: 8, count: 1 },
-                { start: 10, count: 1 },
-                { start: 12, count: 1 },
-                { start: 14, count: 1 },
-                { start: 16, count: Math.max(20, midEnd - 16) },
-            ];
-
-            // draw pillars
-            drawSegments(x1, topY, col1);
-            drawSegments(x2, topY, col2);
-            drawSegments(x3, topY, col3);
-
-            // ---- TOP RIGHT rounded cap ----
-            drawCapDots(x3, topY, [0, 1, 2], [-2, -1, 1, 2]);
-            drawCapDots(x3, topY, [3], [-2, 2]);
-            drawCapDots(x3, topY, [4], [-1, 1]);
-
-            // ---- BOTTOM LEFT small ring ----
-            drawCapDots(x1, topY, [bottomRingBase, bottomRingBase + 1], [-2, 2]);
-            drawCapDots(x1, topY, [bottomRingBase + 2], [-3, 3]);
-            drawCapDots(x1, topY, [bottomRingBase + 3], [-2, 2]);
-            drawCapDots(x1, topY, [bottomRingBase + 4], [-1, 1]);
-
-            // ---- BOTTOM RIGHT big ring ----
-            drawCapDots(x3, topY, [bottomRingBase - 2, bottomRingBase - 1], [-2, -1, 1, 2]);
-            drawCapDots(x3, topY, [bottomRingBase], [-3, 3]);
-            drawCapDots(x3, topY, [bottomRingBase + 1], [-2, 2]);
-            drawCapDots(x3, topY, [bottomRingBase + 2], [-1, 1]);
-
-            // ---- bottom tail ----
-            for (let i = -6; i <= 6; i++) {
-                drawBit(x3 + i * fontSize, tailRow, topY);
+            // Draw all lines with staggered animation
+            for (let i = 0; i < leftColumn.length; i++) {
+                const y = topY + i * lineHeight;
+                // Calculate how many characters to show for this row based on stagger
+                const charsToShow = Math.max(0, animationCounter - (i * staggerDelay));
+                
+                if (leftColumn[i] && charsToShow > 0) {
+                    ctx.fillText(leftColumn[i].substring(0, charsToShow), startX, y);
+                }
+                if (middleColumn[i] && charsToShow > 0) {
+                    ctx.fillText(middleColumn[i].substring(0, charsToShow), startX + columnSpacing, y);
+                }
+                if (rightColumn[i] && charsToShow > 0) {
+                    ctx.fillText(rightColumn[i].substring(0, charsToShow), startX + columnSpacing * 2, y);
+                }
             }
-            // small vertical continuation on right side of tail
-            drawSegments(x3, topY, [{ start: tailRow + 2, count: 3 }]);
-            drawSegments(x3 + 2 * fontSize, topY, [{ start: tailRow + 2, count: 3 }]);
+
+            // Continue animation until all rows are fully typed
+            const totalAnimationSteps = maxLength + (leftColumn.length * staggerDelay);
+            if (animationCounter < totalAnimationSteps) {
+                animationCounter++;
+                animationFrame = requestAnimationFrame(() => {
+                    setTimeout(draw, 20);
+                });
+            }
         };
 
         const handleResize = () => {
             resizeCanvas();
-            draw();
+            // Redraw current state without resetting animation
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            ctx.fillStyle = '#bf2929';
+            ctx.font = `bold ${fontSize}px "Courier Prime", monospace`;
+
+            const startX = window.innerWidth * 0.55;
+            const columnSpacing = 180;
+            const topY = 200;
+
+            for (let i = 0; i < leftColumn.length; i++) {
+                const y = topY + i * lineHeight;
+                const charsToShow = Math.max(0, animationCounter - (i * staggerDelay));
+                
+                if (leftColumn[i] && charsToShow > 0) {
+                    ctx.fillText(leftColumn[i].substring(0, charsToShow), startX, y);
+                }
+                if (middleColumn[i] && charsToShow > 0) {
+                    ctx.fillText(middleColumn[i].substring(0, charsToShow), startX + columnSpacing, y);
+                }
+                if (rightColumn[i] && charsToShow > 0) {
+                    ctx.fillText(rightColumn[i].substring(0, charsToShow), startX + columnSpacing * 2, y);
+                }
+            }
         };
 
         resizeCanvas();
@@ -180,15 +254,18 @@ export default function Hero() {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+            }
         };
     }, []);
     return (
         <section className="relative min-h-screen bg-white overflow-hidden" id="home">
-            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
+            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
             <div className="pointer-events-none absolute inset-y-0 left-0 w-[2vw] min-w-8 bg-black" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-[2vw] min-w-8 bg-black" />
 
-            <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pt-8 pb-6">
+            <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pt-8">
                 <div className="flex justify-between items-baseline w-full">
                     <div className="flex items-baseline gap-2">
                         <h1 className="text-5xl md:text-6xl font-italiana font-light tracking-tight">
@@ -203,7 +280,7 @@ export default function Hero() {
                     <p className="text-sm md:text-base text-black font-caudex uppercase">{currentDate}</p>
                 </div>
 
-                <div className="mt-2 mb-24 relative w-full">
+                <div className="mt-2 relative w-full">
                     <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
                     <div className="border-t border-black absolute top-1 left-0 right-0"></div>
                     <div className="py-3">
@@ -217,7 +294,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="relative z-10 container mx-auto px-8 pb-8 max-w-6xl">
+            <div className="relative z-10 container mx-auto px-8 m-24 max-w-6xl h-[450px]">
                 <div className="max-w-2xl ml-24 flex flex-col justify-center min-h-[50vh] space-y-16">
                     <div>
                         <h2 className="text-3xl md:text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
