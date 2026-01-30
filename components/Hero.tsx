@@ -320,10 +320,26 @@ export default function Hero() {
                 <div className="relative mt-10 w-full">
                     <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
                     <div className="border-t border-black absolute top-1 left-0 right-0"></div>
-                    <div className="py-3">
-                        <p className="text-base md:text-lg text-black leading-relaxed font-light">
-                            engineering - computer science - philosophy - business - political science - mathematics - criminology
-                        </p>
+                    <div className="py-3 overflow-hidden">
+                        <div
+                            className="flex whitespace-nowrap text-base md:text-lg text-black leading-relaxed font-light"
+                            style={{
+                                animation: 'marquee-left 25s linear infinite',
+                            }}
+                        >
+                            <span className="inline-block">
+                                ngineering - computer science - philosophy - business - political science - mathematics - criminology - e
+                            </span>
+                            <span className="inline-block">
+                                ngineering - computer science - philosophy - business - political science - mathematics - criminology - e
+                            </span>
+                            <span className="inline-block">
+                                ngineering - computer science - philosophy - business - political science - mathematics - criminology - e
+                            </span>
+                            <span className="inline-block">
+                                ngineering - computer science - philosophy - business - political science - mathematics - criminology - e
+                            </span>
+                        </div>
                     </div>
                     <div className="border-b border-black absolute bottom-1 left-0 right-0"></div>
                     <div className="border-b-[3px] border-black absolute bottom-0 left-0 right-0"></div>
@@ -371,6 +387,36 @@ export default function Hero() {
                             ))}
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pb-12">
+                <div className="relative mt-10 w-full">
+                    <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
+                    <div className="border-t border-black absolute top-1 left-0 right-0"></div>
+                    <div className="py-3 overflow-hidden">
+                        <div
+                            className="flex whitespace-nowrap text-base md:text-lg text-black leading-relaxed font-light"
+                            style={{
+                                animation: 'marquee-right 25s linear infinite',
+                            }}
+                        >
+                            <span className="inline-block">
+                                ngineering - computer science - philosophy - business - political science - mathematics - criminology - e
+                            </span>
+                            <span className="inline-block">
+                                ngineering - computer science - philosophy - business - political science - mathematics - criminology - e
+                            </span>
+                            <span className="inline-block">
+                                ngineering - computer science - philosophy - business - political science - mathematics - criminology - e
+                            </span>
+                            <span className="inline-block">
+                                ngineering - computer science - philosophy - business - political science - mathematics - criminology - e
+                            </span>
+                        </div>
+                    </div>
+                    <div className="border-b border-black absolute bottom-1 left-0 right-0"></div>
+                    <div className="border-b-[3px] border-black absolute bottom-0 left-0 right-0"></div>
                 </div>
             </div>
         </section>
