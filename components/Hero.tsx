@@ -245,10 +245,8 @@ export default function Hero() {
         };
     }, []);
     return (
-        <section className="relative min-h-screen bg-white overflow-hidden" id="home">
+        <section className="relative min-h-screen bg-white overflow-hidden mx-8" id="home">
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-[2vw] min-w-8 bg-black" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-[2vw] min-w-8 bg-black" />
 
             <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pt-8">
                 <div className="flex justify-between items-baseline w-full">
