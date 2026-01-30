@@ -248,10 +248,10 @@ export default function Hero() {
         <section className="relative min-h-screen bg-white overflow-hidden mx-8" id="home">
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-            <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pt-8">
+            <div className="relative z-10 w-full pt-8">
                 <div className="flex justify-between items-baseline w-full">
                     <div className="flex items-baseline gap-2">
-                        <h1 className="text-5xl md:text-6xl font-italiana font-light tracking-tight">
+                        <h1 className="text-5xl md:text-6xl font-italiana font-light tracking-tight px-4">
                             <span className="text-[#BF2929]">illumin</span>
                             <span className="text-[#BF2929]">AI</span>
                         </h1>
@@ -260,14 +260,14 @@ export default function Hero() {
                             AI, ETHICS <span className="text-[#BF2929]">&</span> SOCIETY
                         </p>
                     </div>
-                    <p className="text-sm md:text-base text-black font-caudex uppercase">{currentDate}</p>
+                    <p className="text-sm md:text-base text-black font-caudex uppercase px-8">{currentDate}</p>
                 </div>
 
                 <div className="mt-2 relative w-full">
                     <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
                     <div className="border-t border-black absolute top-1 left-0 right-0"></div>
                     <div className="py-3">
-                        <p className="text-base md:text-lg text-black leading-relaxed font-light">
+                        <p className="text-base md:text-lg text-black leading-relaxed font-light px-8">
                             We bring curious people exploring interdisciplinary challenges of the ethics and societal impacts of AI,
                             together.
                         </p>
@@ -280,26 +280,26 @@ export default function Hero() {
             <div className="relative z-10 container mx-auto px-8 m-24 max-w-6xl h-[450px]">
                 <div className="max-w-2xl ml-24 flex flex-col justify-center min-h-[50vh] space-y-16">
                     <div>
-                        <h2 className="text-3xl md:text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
+                        <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
                             RESEARCH <span className="text-black">&</span> WRITING
                         </h2>
                     </div>
 
                     <div>
-                        <h2 className="text-3xl md:text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
+                        <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
                             VIDEOS <span className="text-black">&</span> INTERVIEWS
                         </h2>
                     </div>
 
                     <div>
-                        <h2 className="text-3xl md:text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
+                        <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
                             AI ETHICS CONFERENCE
                         </h2>
                     </div>
                 </div>
             </div>
 
-            <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pb-12">
+            <div className="relative z-10 w-full pb-12">
                 <div className="relative mt-10 w-full">
                     <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
                     <div className="border-t border-black absolute top-1 left-0 right-0"></div>
@@ -332,7 +332,7 @@ export default function Hero() {
             <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pb-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <Link href={`/blogs/${main_blog.slug}/`} className="lg:col-span-7 block group">
-                        <div className="border border-black/40 bg-white/90 shadow-[0_12px_25px_rgba(0,0,0,0.12)] rounded-sm overflow-hidden flex flex-col transition-shadow group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.15)]">
+                        <div className="border border-black/40 bg-white/90 shadow-[0_12px_25px_rgba(0,0,0,0.12)] rounded-xl overflow-hidden flex flex-col transition-shadow group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.15)]">
                             <div className="w-full bg-neutral-100 aspect-[16/9] max-h-[320px]">
                                 <div
                                     className="h-full w-full bg-cover bg-center"
@@ -352,12 +352,12 @@ export default function Hero() {
                     </Link>
 
                     <div className="lg:col-span-5">
-                        <div className="border border-black/40 bg-white/95 shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm p-4 sm:p-5 flex flex-col gap-5">
+                        <div className="border border-black/40 bg-white/95 shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-xl p-4 sm:p-5 flex flex-col gap-5">
                             {highlightedBlogs.map((item, idx) => (
                                 <Link
                                     key={idx}
                                     href={`/blogs/${item.slug}/`}
-                                    className="flex items-center justify-between gap-4 border border-black/20 rounded-sm px-3 py-3 bg-white transition-shadow hover:shadow-md"
+                                    className="flex items-center justify-between gap-4 border border-black/20 rounded-xl px-3 py-3 bg-white transition-shadow hover:shadow-md"
                                 >
                                     <div className="flex-1">
                                         <h4 className="text-base font-semibold text-black leading-tight">{item.title}</h4>
@@ -375,7 +375,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pb-12">
+            <div className="relative z-10 w-full pb-12">
                 <div className="relative mt-10 w-full">
                     <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
                     <div className="border-t border-black absolute top-1 left-0 right-0"></div>
