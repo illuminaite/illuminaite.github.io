@@ -53,9 +53,12 @@ export default function Navbar() {
         <nav className="bg-black h-20 flex justify-center items-center text-lg sticky top-0 z-50">
             <div className="flex justify-between items-center h-20 w-full max-w-7xl mx-auto px-12">
                 {/* Brand */}
-                <div className="text-white text-xl font-italiana cursor-default tracking-wider">
+                <Link
+                    href="/"
+                    className="text-white text-xl font-italiana cursor-pointer tracking-wider hover:text-primary-coral transition-colors duration-300"
+                >
                     illuminAI
-                </div>
+                </Link>
 
                 {/* Mobile menu button */}
                 <div className="flex lg:hidden">

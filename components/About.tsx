@@ -125,7 +125,7 @@ whether you are a dedicated team member, workshop attendee, hackathon participan
                     </div>
                 </div>
             </div>{/* ================= PAST COLLABORATIONS & SPONSORS ================= */}
-            <div className="space-y-6">
+            <div className="space-y-6 pb-8">
 
                 {/* Title */}
                 <h2 className="text-center text-4xl font-italiana tracking-wide">
@@ -133,31 +133,34 @@ whether you are a dedicated team member, workshop attendee, hackathon participan
                 </h2>
 
                 {/* Bordered container */}
-                <div className="border-2 border-black px-8 py-6">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-
+                <div className="border-2 border-black px-8 py-6 mx-8">
+                    <div className="grid grid-cols-3 sm:grid-cols-6 gap-6">
                         {[
-                            'UNIVERSITY OF TORONTO',
-                            'SAP',
-                            'PERPLEXITY',
-                            'MIT',
-                            'IBM',
-                            'NCWIT',
-                            'WiCS',
-                            'SFU',
-                            'U OF T ENTREPRENEURSHIP',
-                            'CUMULUS DATA',
-                        ].map((name) => (
+                            'uoft.svg',
+                            'sap.svg',
+                            'perplexity.svg',
+                            'mit.svg',
+                            'ibm.svg',
+                            'ncwit.svg',
+                            'wics.svg',
+                            'sfu.svg',
+                            'ute.svg',
+                            'cumulus.svg',
+                            'cssu.svg',
+                            'entrepreneur first.svg',
+                        ].map((filename) => (
                             <div
-                                key={name}
-                                className="border border-black h-20 flex items-center justify-center text-center px-2"
+                                key={filename}
+                                className="relative h-20 flex items-center justify-center"
                             >
-          <span className="font-caudex text-sm tracking-wide">
-            {name}
-          </span>
+                                <Image
+                                    src={`/images/sponsors/${encodeURIComponent(filename)}`}
+                                    alt={filename.replace('.svg', '')}
+                                    fill
+                                    className="object-contain object-center"
+                                />
                             </div>
                         ))}
-
                     </div>
                 </div>
             </div>
