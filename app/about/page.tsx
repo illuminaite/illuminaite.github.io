@@ -1,12 +1,14 @@
-import Hero from '@/components/Hero'
-import Collaborators from '@/components/Collaborators'
+import Navbar from '@/components/Navbar'
+import Header from '@/components/Header'
+import AboutSection from '@/components/About'
 import Footer from '@/components/Footer'
 
-export default function About() {
+export default function AboutPage() {
     return (
         <main className="min-h-screen bg-black">
-            <Hero />
-            <Collaborators />
+            <Navbar />
+            <Header />
+            <AboutSection />
             <Footer />
         </main>
     )

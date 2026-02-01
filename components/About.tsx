@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function About() {
     return (
-        <section id="about" className="bg-white">
+        <section id="about" className="bg-white mx-8">
             <div className="mx-auto max-w-6xl px-6 py-20 space-y-20">
 
                 {/* ================= MISSION / CULTURE (BORDERED) ================= */}
