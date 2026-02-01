@@ -86,34 +86,34 @@ export default function Navbar() {
                 {/* Desktop menu */}
                 <ul className="hidden lg:flex items-center list-none uppercase tracking-wider">
                     <li className="h-20">
-                        <button
-                            onClick={() => scrollToSection('about')}
+                        <Link
+                            href="/about"
                             className={`font-italiana text-primary-light flex items-center justify-center w-32 h-full transition-all duration-300 ${
-                                activeSection === 'about'
+                                pathname === '/about'
                                     ? 'text-primary-coral'
                                     : 'hover:text-primary-coral'
                             }`}
                         >
                             ABOUT
-                        </button>
+                        </Link>
                     </li>
 
                     <li className="h-20">
-                        <button
-                            onClick={() => scrollToSection('team')}
+                        <Link
+                            href="/team"
                             className={`font-italiana text-primary-light flex items-center justify-center w-32 h-full transition-all duration-300 ${
-                                activeSection === 'team'
+                                pathname === '/team'
                                     ? 'text-primary-coral'
                                     : 'hover:text-primary-coral'
                             }`}
                         >
                             TEAM
-                        </button>
+                        </Link>
                     </li>
 
                     <li className="h-20">
                         <Link
-                            href="/ARCHIVE"
+                            href="/archive"
                             className="font-italiana text-primary-light flex items-center justify-center w-32 h-full hover:text-primary-coral transition-all duration-300"
                         >
                             ARCHIVE
@@ -137,12 +137,13 @@ export default function Navbar() {
                     }`}
                 >
                     <li className="my-4">
-                        <button
-                            onClick={() => scrollToSection('about')}
+                        <Link
+                            href="/about"
+                            onClick={closeMobileMenu}
                             className="font-italiana text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
                         >
                             ABOUT
-                        </button>
+                        </Link>
                     </li>
 
                     <li className="my-4">
@@ -156,7 +157,7 @@ export default function Navbar() {
 
                     <li className="my-4">
                         <Link
-                            href="/ARCHIVE"
+                            href="/archive"
                             onClick={closeMobileMenu}
                             className="font-italiana text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
                         >
