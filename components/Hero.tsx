@@ -1,13 +1,12 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import blog1Data from '@/data/blogs/blog1.json';
 import type { Blog } from '@/types/blog';
 
 export default function Hero() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [currentDate, setCurrentDate] = useState('');
     const main_blog = blog1Data as Blog;
     const highlighted_blog1 = blog1Data as Blog;
     const highlighted_blog2 = blog1Data as Blog;
@@ -15,16 +14,6 @@ export default function Hero() {
     const highlightedBlogs = [highlighted_blog1, highlighted_blog2, highlighted_blog3];
 
     useEffect(() => {
-        // date
-        const now = new Date();
-        const options: Intl.DateTimeFormatOptions = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-        };
-        setCurrentDate(now.toLocaleDateString('en-US', options).toUpperCase());
-
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -247,35 +236,6 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen bg-white overflow-hidden mx-8" id="home">
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-
-            <div className="relative z-10 w-full pt-8">
-                <div className="flex justify-between items-baseline w-full">
-                    <div className="flex items-baseline gap-2">
-                        <h1 className="text-5xl md:text-6xl font-italiana font-light tracking-tight px-4">
-                            <span className="text-[#BF2929]">illumin</span>
-                            <span className="text-[#BF2929]">AI</span>
-                        </h1>
-                        <div className="h-12 w-px bg-[#8B0000]/30"></div>
-                        <p className="text-xl md:text-2xl text-[#BF2929] font-italiana tracking-wide">
-                            AI, ETHICS <span className="text-[#BF2929]">&</span> SOCIETY
-                        </p>
-                    </div>
-                    <p className="text-sm md:text-base text-black font-caudex uppercase px-8">{currentDate}</p>
-                </div>
-
-                <div className="mt-2 relative w-full">
-                    <div className="border-t-[3px] border-black absolute top-0 left-0 right-0"></div>
-                    <div className="border-t border-black absolute top-1 left-0 right-0"></div>
-                    <div className="py-3">
-                        <p className="text-base md:text-lg text-black leading-relaxed font-light px-8">
-                            We bring curious people exploring interdisciplinary challenges of the ethics and societal impacts of AI,
-                            together.
-                        </p>
-                    </div>
-                    <div className="border-b border-black absolute bottom-1 left-0 right-0"></div>
-                    <div className="border-b-[3px] border-black absolute bottom-0 left-0 right-0"></div>
-                </div>
-            </div>
 
             <div className="relative z-10 container mx-auto px-8 m-24 max-w-6xl h-[450px]">
                 <div className="max-w-2xl ml-24 flex flex-col justify-center min-h-[50vh] space-y-16">

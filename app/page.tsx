@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar'
+import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Collaborators from '@/components/Collaborators'
 // import About from '@/components/About'
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black">
       <Navbar />
+      <Header />
       <Hero />
       <Collaborators />
       {/* <About /> */}
