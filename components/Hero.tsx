@@ -148,7 +148,7 @@ export default function Hero() {
 
         const resizeCanvas = () => {
             const dpr = window.devicePixelRatio || 1;
-            const topY = 200;
+            const topY = 80;
             const minHeight = topY + (leftColumn.length * lineHeight) + 50; // Add 50px buffer
             const canvasHeight = Math.max(window.innerHeight, minHeight);
             
@@ -166,7 +166,7 @@ export default function Hero() {
 
             const startX = window.innerWidth * 0.55;
             const columnSpacing = 180;
-            const topY = 200;
+            const topY = 80;
 
             // Draw all lines with staggered animation
             for (let i = 0; i < leftColumn.length; i++) {
@@ -204,7 +204,7 @@ export default function Hero() {
 
             const startX = window.innerWidth * 0.55;
             const columnSpacing = 180;
-            const topY = 200;
+            const topY = 80;
 
             for (let i = 0; i < leftColumn.length; i++) {
                 const y = topY + i * lineHeight;
