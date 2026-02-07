@@ -25,7 +25,7 @@ export default function Header() {
                         <span className="text-[#BF2929]">AI</span>
                     </h1>
                     <div className="h-12 w-px bg-[#8B0000]/30"></div>
-                    <p className="text-xl md:text-2xl text-[#BF2929] font-italiana tracking-wide">
+                    <p className="hidden md:block text-xl md:text-2xl text-[#BF2929] font-italiana tracking-wide">
                         AI, ETHICS <span className="text-[#BF2929]">&</span> SOCIETY
                     </p>
                 </div>

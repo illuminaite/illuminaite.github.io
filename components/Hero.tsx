@@ -14,6 +14,8 @@ export default function Hero() {
     const highlightedBlogs = [highlighted_blog1, highlighted_blog2, highlighted_blog3];
 
     useEffect(() => {
+        if (typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches) return;
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
