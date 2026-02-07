@@ -35,7 +35,16 @@ export default function Collaborators() {
           ))}
         </div>
 
-        <div className="border-2 border-black px-8 py-6 flex flex-col gap-4">
+        <div className="flex flex-wrap items-stretch gap-6">
+          <div className="relative shrink-0 w-full sm:w-[40%] self-stretch border-2 border-black">
+            <Image
+              src="/images/crossword.png"
+              alt="IlluinAI Crossword Puzzle"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <div className="border-2 border-black px-8 py-6 flex flex-col gap-4 flex-1 min-w-0">
             <span className="text-5xl font-italiana tracking-wide">
                 WHAT PEOPLE ARE SAYING
             </span>
@@ -67,6 +76,7 @@ export default function Collaborators() {
                     "An exceptional opportunity to distill my philosophy regarding AI, bearing particular concern towards AI ethics, safety, and alignment."
                 </span>
             </div>
+          </div>
         </div>
       </div>
     </section>
