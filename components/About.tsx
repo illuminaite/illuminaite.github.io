@@ -63,7 +63,7 @@ whether you are a dedicated team member, workshop attendee, hackathon participan
                 </div>
 
                 {/* ================= OUR IMPACT ================= */}
-                <div>
+                <div className="hidden md:block">
                     {/* title outside border */}
                     <h2 className="text-center text-4xl font-italiana tracking-wide mb-6">
                         OUR IMPACT
@@ -106,7 +106,7 @@ whether you are a dedicated team member, workshop attendee, hackathon participan
                             {/* CENTER FIGURE */}
                             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                                 <Image
-                                    src="/images/balancing gif.gif"
+                                    src="/images/black_balancing.gif"
                                     alt="illustrated figure holding bags"
                                     width={360}
                                     height={360}
