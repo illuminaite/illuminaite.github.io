@@ -81,11 +81,10 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                         {/* Featured Image */}
                         {blog.image && (
                             <div
-                                className="mb-2 overflow-hidden"
+                                className="mb-2 rounded-lg overflow-hidden w-full"
                                 style={{
                                     width: '1359px',
                                     maxWidth: '100%',
-                                    height: '650px',
                                     borderRadius: '8px',
                                     background: '#D3D3D3'
                                 }}
@@ -93,7 +92,8 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                                 <img
                                     src={blog.image}
                                     alt={blog.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-auto max-w-full"
+                                    style={{ display: 'block', verticalAlign: 'middle' }}
                                 />
                             </div>
                         )}
