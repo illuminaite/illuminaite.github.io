@@ -29,9 +29,6 @@ export default function TeamSection() {
                 <span className="mt-1 text-sm text-gray-500">
                   {member.title}
                 </span>
-                <span className="text-sm text-gray-500">
-                  {member.description}
-                </span>
               </div>
             ))}
           </div>
