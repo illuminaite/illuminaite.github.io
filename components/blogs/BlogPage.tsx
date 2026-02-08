@@ -45,6 +45,23 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                             {blog.title}
                         </h2>
 
+                        {/* Author */}
+                        {blog.author && (
+                            <p
+                                className="mb-6"
+                                style={{
+                                    color: 'rgba(0, 0, 0, 0.65)',
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '18px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: '150%'
+                                }}
+                            >
+                                by {blog.author}
+                            </p>
+                        )}
+
                         {/* Subtitle/Excerpt */}
                         <p
                             className="mb-12"
@@ -64,7 +81,7 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                         {/* Featured Image */}
                         {blog.image && (
                             <div
-                                className="mb-12 overflow-hidden"
+                                className="mb-2 overflow-hidden"
                                 style={{
                                     width: '1359px',
                                     maxWidth: '100%',
@@ -79,6 +96,23 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
+                        )}
+
+                        {/* Image Credit */}
+                        {blog.image_credit && (
+                            <p
+                                className="mb-8"
+                                style={{
+                                    color: 'rgba(0, 0, 0, 0.6)',
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '14px',
+                                    fontStyle: 'italic',
+                                    fontWeight: 400,
+                                    lineHeight: '150%'
+                                }}
+                            >
+                                {blog.image_credit}
+                            </p>
                         )}
 
                         {/* Date */}
