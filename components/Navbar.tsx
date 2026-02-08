@@ -116,10 +116,10 @@ export default function Navbar() {
 
                     <li className="h-20">
                         <Link
-                            href="/archive"
+                            href="/blogs"
                             className="font-italiana text-primary-light flex items-center justify-center w-32 h-full hover:text-primary-coral transition-all duration-300"
                         >
-                            ARCHIVE
+                            BLOGS
                         </Link>
                     </li>
 
@@ -160,11 +160,11 @@ export default function Navbar() {
 
                     <li className="my-4">
                         <Link
-                            href="/archive"
+                            href="/blogs"
                             onClick={closeMobileMenu}
                             className="font-italiana text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
                         >
-                            ARCHIVE
+                            BLOGS
                         </Link>
                     </li>
 
