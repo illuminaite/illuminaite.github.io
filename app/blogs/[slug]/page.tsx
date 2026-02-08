@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
 import BlogPage from '@/components/blogs/BlogPage';
+import Navbar from '@/components/Navbar';
+import Header from '@/components/Header';
 import { Blog } from '@/types/blog';
 import fs from 'fs';
 import path from 'path';
@@ -66,5 +68,11 @@ export default async function DynamicBlogPage({ params }: BlogPageProps) {
         notFound();
     }
 
-    return <BlogPage blog={blog} relatedBlogs={allBlogs} />;
+    return (
+        <>
+            <Navbar />
+            <Header />
+            <BlogPage blog={blog} relatedBlogs={allBlogs} />
+        </>
+    );
 }
