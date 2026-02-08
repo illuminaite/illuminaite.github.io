@@ -322,6 +322,27 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                             </div>
                         )}
 
+                        {/* Date */}
+                        {blog.date && (
+                            <p
+                                className="mb-8"
+                                style={{
+                                    color: 'rgba(0, 0, 0, 0.6)',
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '16px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 400,
+                                    lineHeight: '150%'
+                                }}
+                            >
+                                {new Date(blog.date).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}
+                            </p>
+                        )}
+
                         {/* Content */}
                         <div
                             style={{

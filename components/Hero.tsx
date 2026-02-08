@@ -2,16 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import blog1Data from '@/data/blogs/blog1.json';
+import main_blog_data from '@/data/blogs/letter-from-illuminai.json';
 import type { Blog } from '@/types/blog';
 
 export default function Hero() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const main_blog = blog1Data as Blog;
-    const highlighted_blog1 = blog1Data as Blog;
-    const highlighted_blog2 = blog1Data as Blog;
-    const highlighted_blog3 = blog1Data as Blog;
-    const highlightedBlogs = [highlighted_blog1, highlighted_blog2, highlighted_blog3];
+    const main_blog = main_blog_data as Blog;
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches) return;
@@ -313,7 +309,7 @@ export default function Hero() {
                         </div>
                     </Link>
 
-                    <div className="lg:col-span-5">
+                    {/* <div className="lg:col-span-5">
                         <div className="border border-black/40 bg-white/95 shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-xl p-4 sm:p-5 flex flex-col gap-5">
                             {highlightedBlogs.map((item, idx) => (
                                 <Link
@@ -333,7 +329,7 @@ export default function Hero() {
                                 </Link>
                             ))}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
