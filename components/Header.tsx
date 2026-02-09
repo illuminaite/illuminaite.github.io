@@ -19,7 +19,7 @@ export default function Header() {
     return (
         <div className="relative z-10 pt-8 bg-white mx-8 overflow-hidden">
             <div className="flex justify-between items-baseline w-full">
-                <div className="flex items-baseline gap-2">
+                <div className="flex items-baseline md:gap-2">
                     <h1 className="text-5xl md:text-6xl font-italiana font-light tracking-tight px-4">
                         <span className="text-[#BF2929]">illumin</span>
                         <span className="text-[#BF2929]">AI</span>

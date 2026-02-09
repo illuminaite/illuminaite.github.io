@@ -330,6 +330,10 @@ export default function Hero() {
                             ))}
                         </div>
                     </div> */}
+
+                    <div className="lg:col-span-5 flex items-center justify-center">
+                        <p className="text-black/70 text-base sm:text-lg font-light italic">More blogs coming soon!</p>
+                    </div>
                 </div>
             </div>
 

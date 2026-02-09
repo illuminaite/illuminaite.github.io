@@ -150,12 +150,13 @@ export default function Navbar() {
                     </li>
 
                     <li className="my-4">
-                        <button
-                            onClick={() => scrollToSection('team')}
+                    <Link
+                            href="/team"
+                            onClick={closeMobileMenu}
                             className="font-italiana text-primary-light text-xl hover:text-primary-coral transition-all duration-300"
                         >
                             TEAM
-                        </button>
+                        </Link>
                     </li>
 
                     <li className="my-4">
