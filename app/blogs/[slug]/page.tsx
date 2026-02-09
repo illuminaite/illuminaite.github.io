@@ -7,9 +7,7 @@ import fs from 'fs';
 import path from 'path';
 
 interface BlogPageProps {
-    params: {
-        slug: string;
-    };
+    params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
