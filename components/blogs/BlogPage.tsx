@@ -25,247 +25,6 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
 
     return (
         <>
-            {/* Black Navbar */}
-            <nav className="bg-black flex justify-center items-center sticky top-0 z-50" style={{ height: '80px' }}>
-                <div className="flex justify-between items-center h-full w-full max-w-[1440px] px-12">
-                    <Link
-                        href="/"
-                        className="text-white cursor-pointer no-underline flex items-center hover:opacity-80 transition-opacity"
-                        style={{
-                            fontFamily: 'Italiana, serif',
-                            fontSize: '30px',
-                            fontWeight: 400,
-                            lineHeight: 'normal',
-                            letterSpacing: '-0.6px',
-                            width: '111px',
-                            height: '34px'
-                        }}
-                    >
-                        illuminAI
-                    </Link>
-
-                    {/* Desktop menu - aligned to the right edge */}
-                    <ul className="hidden lg:flex items-center list-none gap-8">
-                        <li>
-                            <Link
-                                href="/#about"
-                                className="text-white flex items-center justify-center transition-all duration-300 hover:opacity-80 uppercase"
-                                style={{
-                                    fontFamily: 'Italiana, serif',
-                                    fontSize: '30px',
-                                    fontWeight: 400,
-                                    lineHeight: 'normal',
-                                    letterSpacing: '-0.6px',
-                                    width: '93px',
-                                    height: '34px'
-                                }}
-                            >
-                                about
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/team"
-                                className="text-white flex items-center justify-center transition-all duration-300 hover:opacity-80 uppercase"
-                                style={{
-                                    fontFamily: 'Italiana, serif',
-                                    fontSize: '30px',
-                                    fontWeight: 400,
-                                    lineHeight: 'normal',
-                                    letterSpacing: '-0.6px',
-                                    width: '93px',
-                                    height: '34px'
-                                }}
-                            >
-                                team
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/blogs"
-                                className="text-white flex items-center justify-center transition-all duration-300 hover:opacity-80 uppercase"
-                                style={{
-                                    fontFamily: 'Italiana, serif',
-                                    fontSize: '30px',
-                                    fontWeight: 400,
-                                    lineHeight: 'normal',
-                                    letterSpacing: '-0.6px',
-                                    width: '93px',
-                                    height: '34px'
-                                }}
-                            >
-                                archive
-                            </Link>
-                        </li>
-                        <li>
-                            <a
-                                href="mailto:illuminaiteacademy@gmail.com"
-                                className="flex justify-center items-center no-underline text-white uppercase"
-                                style={{
-                                    height: '38px',
-                                    padding: '14px 24px',
-                                    gap: '8px',
-                                    borderRadius: '8px',
-                                    background: '#8B0000',
-                                    boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-                                    fontFamily: 'Italiana, serif',
-                                    fontSize: '19px',
-                                    fontWeight: 400,
-                                    lineHeight: 'normal',
-                                    letterSpacing: '-0.38px',
-                                    whiteSpace: 'nowrap'
-                                }}
-                            >
-                                contact us
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            {/* Blog Header Section */}
-            <div className="bg-white">
-                {/* Black side borders container */}
-                <div className="bg-black">
-                    <div className="max-w-[1440px] mx-auto bg-white">
-                        <div style={{ padding: '24px 60px' }}>
-                            {/* illuminAI, AI ETHICS & SOCIETY, and Date */}
-                            <div className="flex justify-between items-end" style={{ marginBottom: '8px' }}>
-                                {/* Left side: illuminAI and AI ETHICS & SOCIETY with red divider */}
-                                <div className="flex items-end" style={{ gap: '24px' }}>
-                                    <h1
-                                        style={{
-                                            color: '#BF2929',
-                                            fontFamily: 'Italiana, serif',
-                                            fontSize: '120px',
-                                            fontWeight: 400,
-                                            lineHeight: '1',
-                                            letterSpacing: '-2.4px',
-                                            margin: 0,
-                                            whiteSpace: 'nowrap'
-                                        }}
-                                    >
-                                        illuminAI
-                                    </h1>
-                                    {/* Red vertical divider */}
-                                    <div
-                                        style={{
-                                            width: '2px',
-                                            height: '112px',
-                                            background: '#8B0000',
-                                            marginBottom: '2px'
-                                        }}
-                                    />
-                                    <span
-                                        style={{
-                                            color: '#BF2929',
-                                            fontFamily: 'Italiana, serif',
-                                            fontSize: '45px',
-                                            fontWeight: 400,
-                                            lineHeight: '1',
-                                            letterSpacing: '-0.9px',
-                                            marginBottom: '8px',
-                                            whiteSpace: 'nowrap'
-                                        }}
-                                    >
-                                        AI ETHICS & SOCIETY
-                                    </span>
-                                </div>
-
-                                {/* Right side: Date - aligned to bottom */}
-                                <div
-                                    style={{
-                                        color: '#000',
-                                        fontFamily: 'Caudex, serif',
-                                        fontSize: '28px',
-                                        fontWeight: 400,
-                                        lineHeight: '1',
-                                        letterSpacing: '-0.56px',
-                                        textAlign: 'right',
-                                        marginBottom: '8px',
-                                        whiteSpace: 'nowrap'
-                                    }}
-                                >
-                                    {new Date(blog.date).toLocaleDateString('en-US', {
-                                        weekday: 'long',
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric'
-                                    }).toUpperCase()}
-                                </div>
-                            </div>
-
-                            {/* Tagline with double borders */}
-                            <div className="relative" style={{ paddingTop: '16px', paddingBottom: '16px' }}>
-                                {/* Top thick border */}
-                                <div
-                                    style={{
-                                        height: '5px',
-                                        background: '#000',
-                                        position: 'absolute',
-                                        top: 0,
-                                        left: '-60px',
-                                        right: '-60px'
-                                    }}
-                                />
-                                {/* Top thin border */}
-                                <div
-                                    style={{
-                                        height: '1px',
-                                        background: '#000',
-                                        position: 'absolute',
-                                        top: '8px',
-                                        left: '-60px',
-                                        right: '-60px'
-                                    }}
-                                />
-
-                                <p
-                                    style={{
-                                        color: '#000',
-                                        fontFamily: 'Caudex, serif',
-                                        fontSize: '26px',
-                                        fontWeight: 400,
-                                        lineHeight: '1.2',
-                                        letterSpacing: '-0.52px',
-                                        margin: 0,
-                                        padding: '6px 0',
-                                        whiteSpace: 'nowrap',
-                                        overflow: 'hidden',
-                                        textOverflow: 'ellipsis'
-                                    }}
-                                >
-                                    We bring curious people exploring interdisciplinary challenges of the ethics and societal impacts of AI, together.
-                                </p>
-
-                                {/* Bottom thin border */}
-                                <div
-                                    style={{
-                                        height: '1px',
-                                        background: '#000',
-                                        position: 'absolute',
-                                        bottom: '8px',
-                                        left: '-60px',
-                                        right: '-60px'
-                                    }}
-                                />
-                                {/* Bottom thick border */}
-                                <div
-                                    style={{
-                                        height: '5px',
-                                        background: '#000',
-                                        position: 'absolute',
-                                        bottom: 0,
-                                        left: '-60px',
-                                        right: '-60px'
-                                    }}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             {/* Blog Content */}
             <div className="bg-black">
                 <div className="max-w-[1440px] mx-auto bg-white min-h-screen">
@@ -286,6 +45,23 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                             {blog.title}
                         </h2>
 
+                        {/* Author */}
+                        {blog.author && (
+                            <p
+                                className="mb-6"
+                                style={{
+                                    color: 'rgba(0, 0, 0, 0.65)',
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '18px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    lineHeight: '150%'
+                                }}
+                            >
+                                by {blog.author}
+                            </p>
+                        )}
+
                         {/* Subtitle/Excerpt */}
                         <p
                             className="mb-12"
@@ -305,11 +81,10 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                         {/* Featured Image */}
                         {blog.image && (
                             <div
-                                className="mb-12 overflow-hidden"
+                                className="mb-2 rounded-lg overflow-hidden w-full"
                                 style={{
                                     width: '1359px',
                                     maxWidth: '100%',
-                                    height: '650px',
                                     borderRadius: '8px',
                                     background: '#D3D3D3'
                                 }}
@@ -317,9 +92,48 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                                 <img
                                     src={blog.image}
                                     alt={blog.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-auto max-w-full"
+                                    style={{ display: 'block', verticalAlign: 'middle' }}
                                 />
                             </div>
+                        )}
+
+                        {/* Image Credit */}
+                        {blog.image_credit && (
+                            <p
+                                className="mb-8"
+                                style={{
+                                    color: 'rgba(0, 0, 0, 0.6)',
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '14px',
+                                    fontStyle: 'italic',
+                                    fontWeight: 400,
+                                    lineHeight: '150%'
+                                }}
+                            >
+                                {blog.image_credit}
+                            </p>
+                        )}
+
+                        {/* Date */}
+                        {blog.date && (
+                            <p
+                                className="mb-8"
+                                style={{
+                                    color: 'rgba(0, 0, 0, 0.6)',
+                                    fontFamily: 'Inter, sans-serif',
+                                    fontSize: '16px',
+                                    fontStyle: 'normal',
+                                    fontWeight: 400,
+                                    lineHeight: '150%'
+                                }}
+                            >
+                                {new Date(blog.date).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}
+                            </p>
                         )}
 
                         {/* Content */}

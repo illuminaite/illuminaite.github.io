@@ -7,4 +7,5 @@ export interface Blog {
   content: string;
   tags: string[];
   image?: string;
+  image_credit?: string;
 }
