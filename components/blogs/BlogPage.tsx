@@ -31,11 +31,10 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                     <article style={{ padding: '48px 60px' }}>
                         {/* Article Title */}
                         <h2
-                            className="mb-8"
+                            className="mb-8 text-[32px] md:text-[64px]"
                             style={{
                                 color: '#000',
                                 fontFamily: 'Inter, sans-serif',
-                                fontSize: '64px',
                                 fontStyle: 'normal',
                                 fontWeight: 700,
                                 lineHeight: 'normal',
@@ -48,11 +47,10 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                         {/* Author */}
                         {blog.author && (
                             <p
-                                className="mb-6"
+                                className="mb-6 text-[12px] md:text-[18px]"
                                 style={{
                                     color: 'rgba(0, 0, 0, 0.65)',
                                     fontFamily: 'Inter, sans-serif',
-                                    fontSize: '18px',
                                     fontStyle: 'normal',
                                     fontWeight: 500,
                                     lineHeight: '150%'
@@ -64,12 +62,11 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
 
                         {/* Subtitle/Excerpt */}
                         <p
-                            className="mb-12"
+                            className="mb-12 text-[18px] md:text-[24px]"
                             style={{
                                 alignSelf: 'stretch',
                                 color: 'rgba(0, 0, 0, 0.75)',
                                 fontFamily: 'Inter, sans-serif',
-                                fontSize: '24px',
                                 fontStyle: 'normal',
                                 fontWeight: 400,
                                 lineHeight: '150%'
@@ -138,13 +135,12 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
 
                         {/* Content */}
                         <div
-                            className="blog-content"
+                            className="blog-content text-[16px] md:text-[20px]"
                             style={{
                                 width: '1359px',
                                 maxWidth: '100%',
                                 color: '#000',
                                 fontFamily: 'Inter, sans-serif',
-                                fontSize: '20px',
                                 fontStyle: 'normal',
                                 fontWeight: 500,
                                 lineHeight: '150%',
