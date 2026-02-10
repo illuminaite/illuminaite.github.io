@@ -3,17 +3,21 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import main_blog_data from '@/data/blogs/letter-from-illuminai.json';
+import highlighted_blog_1 from '@/data/blogs/intro-to-ai-ethics.json';
 import type { Blog } from '@/types/blog';
 
 export default function Hero() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const containerRef = useRef<HTMLElement>(null);
     const main_blog = main_blog_data as Blog;
+    const highlightedBlogs = [highlighted_blog_1] as Blog[];
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches) return;
 
         const canvas = canvasRef.current;
-        if (!canvas) return;
+        const container = containerRef.current;
+        if (!canvas || !container) return;
 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
@@ -143,28 +147,35 @@ export default function Hero() {
         );
 
         const staggerDelay = 2; // Number of animation steps to delay each row
+        const topY = 80;
+
+        const getContainerWidth = () => {
+            // Get the actual width of the Hero section container
+            return container.getBoundingClientRect().width;
+        };
 
         const resizeCanvas = () => {
             const dpr = window.devicePixelRatio || 1;
-            const topY = 80;
             const minHeight = topY + (leftColumn.length * lineHeight) + 50; // Add 50px buffer
             const canvasHeight = Math.max(window.innerHeight, minHeight);
+            const containerWidth = getContainerWidth();
             
-            canvas.width = Math.floor(window.innerWidth * dpr);
+            canvas.width = Math.floor(containerWidth * dpr);
             canvas.height = Math.floor(canvasHeight * dpr);
-            canvas.style.width = `${window.innerWidth}px`;
+            canvas.style.width = `${containerWidth}px`;
             canvas.style.height = `${canvasHeight}px`;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         };
 
         const draw = () => {
-            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            const containerWidth = getContainerWidth();
+            const canvasHeight = Math.max(window.innerHeight, topY + (leftColumn.length * lineHeight) + 50);
+            ctx.clearRect(0, 0, containerWidth, canvasHeight);
             ctx.fillStyle = '#bf2929';
             ctx.font = `bold ${fontSize}px "Courier Prime", monospace`;
 
-            const startX = window.innerWidth * 0.55;
+            const startX = containerWidth * 0.55;
             const columnSpacing = 180;
-            const topY = 80;
 
             // Draw all lines with staggered animation
             for (let i = 0; i < leftColumn.length; i++) {
@@ -196,13 +207,14 @@ export default function Hero() {
         const handleResize = () => {
             resizeCanvas();
             // Redraw current state without resetting animation
-            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            const containerWidth = getContainerWidth();
+            const canvasHeight = Math.max(window.innerHeight, topY + (leftColumn.length * lineHeight) + 50);
+            ctx.clearRect(0, 0, containerWidth, canvasHeight);
             ctx.fillStyle = '#bf2929';
             ctx.font = `bold ${fontSize}px "Courier Prime", monospace`;
 
-            const startX = window.innerWidth * 0.55;
+            const startX = containerWidth * 0.55;
             const columnSpacing = 180;
-            const topY = 80;
 
             for (let i = 0; i < leftColumn.length; i++) {
                 const y = topY + i * lineHeight;
@@ -232,11 +244,11 @@ export default function Hero() {
         };
     }, []);
     return (
-        <section className="relative min-h-screen bg-white overflow-hidden mx-8" id="home">
+        <section ref={containerRef} className="relative min-h-screen bg-white overflow-hidden mx-8" id="home">
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-            <div className="relative z-10 container mx-auto px-8 m-24 max-w-6xl h-[450px]">
-                <div className="max-w-2xl ml-24 flex flex-col justify-center min-h-[50vh] space-y-16">
+            <div className="relative z-10 container mx-auto px-8 py-48 max-w-6xl">
+                <div className="max-w-2xl ml-24 flex flex-col justify-center space-y-16">
                     <div>
                         <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
                             RESEARCH <span className="text-black">&</span> WRITING
@@ -309,7 +321,7 @@ export default function Hero() {
                         </div>
                     </Link>
 
-                    {/* <div className="lg:col-span-5">
+                    <div className="lg:col-span-5">
                         <div className="border border-black/40 bg-white/95 shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-xl p-4 sm:p-5 flex flex-col gap-5">
                             {highlightedBlogs.map((item, idx) => (
                                 <Link
@@ -329,11 +341,8 @@ export default function Hero() {
                                 </Link>
                             ))}
                         </div>
-                    </div> */}
-
-                    <div className="lg:col-span-5 flex items-center justify-center">
-                        <p className="text-black/70 text-base sm:text-lg font-light italic">More blogs coming soon!</p>
                     </div>
+
                 </div>
             </div>
 
