@@ -138,6 +138,7 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
 
                         {/* Content */}
                         <div
+                            className="blog-content"
                             style={{
                                 width: '1359px',
                                 maxWidth: '100%',
