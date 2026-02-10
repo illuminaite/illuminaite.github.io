@@ -80,61 +80,47 @@ export default async function BlogsDashboard() {
             <div className="max-w-[1440px] mx-auto mt-[-25px]">
                 <div style={{ border: '2px solid white' }}>
                     {/* Articles Title and Image Section */}
-                    <div className="px-20 py-24">
-                <div className="flex w-full">
-                    {/* Left side: Articles Title */}
-                    <div className="w-1/2 flex flex-col justify-left">
-                        <h2
-                            style={{
-                                color: '#FFFFFF',
-                                fontFamily: 'Italiana, serif',
-                                fontSize: '120px',
-                                fontWeight: 400,
-                                lineHeight: '1',
-                                letterSpacing: '-2.4px',
-                                margin: 0,
-                                textTransform: 'lowercase'
-                            }}
-                        >
-                            articles
-                        </h2>
+                    <div className="px-6 md:px-20 py-16 md:py-24">
+                        <div className="flex flex-col md:flex-row w-full">
+                            {/* Left side: Articles Title */}
+                            <div className="w-full md:w-1/2 flex flex-col justify-left">
+                                <h2
+                                    style={{
+                                        color: '#FFFFFF',
+                                        fontFamily: 'Italiana, serif',
+                                        fontSize: 'clamp(3rem, 14vw, 7.5rem)', // responsive size for mobile/desktop
+                                        fontWeight: 400,
+                                        lineHeight: '0.9',
+                                        letterSpacing: '-0.06em',
+                                        margin: 0,
+                                        textTransform: 'lowercase'
+                                    }}
+                                >
+                                    articles
+                                </h2>
+                            </div>
+                            {/* Right side: Image */}
+                            <div className="w-full md:w-1/2 hidden md:block">
+                                <img
+                                    src="/images/blogs_dashboard_image.png"
+                                    alt="Blogs Dashboard"
+                                    className="w-[80%] h-full object-cover mx-auto"
+                                />
+                            </div>
+                        </div>
                     </div>
-                    {/* Right side: Image */}
-                    <div className="w-1/2 hidden md:block">
-                        <img
-                            src="/images/blogs_dashboard_image.png"
-                            alt="Blogs Dashboard"
-                            className="w-[80%] h-full object-cover mx-auto"
-                        />
-                    </div>
-                </div>
-            </div>
 
                     {/* Blog Grid */}
                 <div className="px-20 pb-24">
                 <div
-                    className="flex flex-wrap"
-                    style={{
-                        maxWidth: '1282px',
-                        rowGap: '96px',
-                        columnGap: '32px',
-                        justifyContent: 'flex-start',
-                        alignItems: 'flex-start',
-                        alignContent: 'flex-start'
-                    }}
+                    className="flex flex-wrap max-w-[1282px] gap-y-24 gap-x-8 justify-start items-start content-start"
                 >
                     {blogs.map((blog) => (
-                        <Link
-                            key={blog.slug}
-                            href={`/blogs/${blog.slug}`}
-                            className="flex flex-col items-start group"
-                            style={{
-                                width: '404px',
-                                height: '366px',
-                                gap: '24px',
-                                flexShrink: 0
-                            }}
-                        >
+                            <Link
+                                key={blog.slug}
+                                href={`/blogs/${blog.slug}`}
+                                className="flex flex-col items-start group w-full sm:w-[calc(50%-16px)] lg:w-[404px] gap-6"
+                            >
                             {/* Blog Image */}
                             <div
                                 className="bg-gray-800 overflow-hidden rounded-lg"

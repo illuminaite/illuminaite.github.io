@@ -3,12 +3,14 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import main_blog_data from '@/data/blogs/letter-from-illuminai.json';
+import highlighted_blog_1 from '@/data/blogs/intro-to-ai-ethics.json';
 import type { Blog } from '@/types/blog';
 
 export default function Hero() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLElement>(null);
     const main_blog = main_blog_data as Blog;
+    const highlightedBlogs = [highlighted_blog_1] as Blog[];
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches) return;
@@ -319,7 +321,7 @@ export default function Hero() {
                         </div>
                     </Link>
 
-                    {/* <div className="lg:col-span-5">
+                    <div className="lg:col-span-5">
                         <div className="border border-black/40 bg-white/95 shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-xl p-4 sm:p-5 flex flex-col gap-5">
                             {highlightedBlogs.map((item, idx) => (
                                 <Link
@@ -339,11 +341,8 @@ export default function Hero() {
                                 </Link>
                             ))}
                         </div>
-                    </div> */}
-
-                    <div className="lg:col-span-5 flex items-center justify-center">
-                        <p className="text-black/70 text-base sm:text-lg font-light italic">More blogs coming soon!</p>
                     </div>
+
                 </div>
             </div>
 
