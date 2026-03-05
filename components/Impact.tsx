@@ -9,28 +9,28 @@ export default function Impact() {
   ]
 
   return (
-    <div className="bg-black py-32 px-8">
-      <div className="max-w-7xl mx-auto text-center">
-        <h1 className="text-5xl lg:text-6xl font-bold mb-16 gradient-text">
-          impact
-        </h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {impactData.map((item, index) => (
-            <div 
-              key={index}
-              className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 transform hover:scale-105 transition-all duration-300 hover:bg-gray-800/50 border border-gray-700"
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 gradient-text">
-                {item.number}
-              </h2>
-              <p className="text-lg text-primary-light/80">
-                {item.description}
-              </p>
-            </div>
-          ))}
+    <section className="bg-white" id="impact">
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        {/* Title outside border to match About section style */}
+        <h2 className="text-center text-4xl font-italiana tracking-wide mb-6">
+          OUR IMPACT
+        </h2>
+
+        {/* Bordered content container */}
+        <div className="border-2 border-black px-6 py-10 md:px-10 md:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {impactData.map((item, index) => (
+              <div
+                key={index}
+                className="border border-black p-6 text-center"
+              >
+                <div className="text-5xl md:text-6xl font-inter leading-none">{item.number}</div>
+                <div className="mt-2 text-xs tracking-wide">{item.description}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

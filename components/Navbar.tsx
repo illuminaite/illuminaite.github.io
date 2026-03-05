@@ -114,6 +114,7 @@ export default function Navbar() {
                         </Link>
                     </li>
 
+
                     <li className="h-20">
                         <Link
                             href="/blogs"
@@ -158,6 +159,7 @@ export default function Navbar() {
                             TEAM
                         </Link>
                     </li>
+
 
                     <li className="my-4">
                         <Link

@@ -5,7 +5,7 @@ export default function Initiatives() {
     {
       title: 'events',
       description: 'hybrid workshops, guest speaker sessions, and more',
-      link: '/events',
+      link: '/events#upcoming',
       buttonText: 'see events',
       isExternal: false,
     },
@@ -33,47 +33,53 @@ export default function Initiatives() {
   ]
 
   return (
-    <div className="bg-black py-32 px-8" id="team">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-5xl lg:text-6xl font-bold mb-16 text-center gradient-text">
-          our initiatives
-        </h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {initiatives.map((initiative, index) => (
-            <div 
-              key={index}
-              className="bg-gray-900/90 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-700"
-            >
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-primary-light">
-                {initiative.title}
-              </h2>
-              <p className="text-lg mb-8 text-primary-light/80 leading-relaxed">
-                {initiative.description}
-              </p>
-              <div className="mt-auto">
-                {initiative.isExternal ? (
-                  <a
-                    href={initiative.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-primary-coral hover:bg-primary-salmon text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300"
-                  >
-                    {initiative.buttonText}
-                  </a>
-                ) : (
-                  <Link
-                    href={initiative.link}
-                    className="inline-block bg-primary-coral hover:bg-primary-salmon text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300"
-                  >
-                    {initiative.buttonText}
-                  </Link>
-                )}
+    <section className="bg-white" id="team">
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        {/* Title outside border to match About section style */}
+        <h2 className="text-center text-4xl font-italiana tracking-wide mb-6">
+          OUR INITIATIVES
+        </h2>
+
+        {/* Bordered content container */}
+        <div className="border-2 border-black px-6 py-10 md:px-10 md:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {initiatives.map((initiative, index) => (
+              <div
+                key={index}
+                className="border border-black p-6 flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-italiana tracking-wide mb-2">
+                    {initiative.title}
+                  </h3>
+                  <p className="font-caudex text-sm leading-relaxed mb-6">
+                    {initiative.description}
+                  </p>
+                </div>
+                <div>
+                  {initiative.isExternal ? (
+                    <a
+                      href={initiative.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block border border-black py-2.5 px-5 hover:bg-black hover:text-white transition-colors duration-200"
+                    >
+                      {initiative.buttonText}
+                    </a>
+                  ) : (
+                    <Link
+                      href={initiative.link}
+                      className="inline-block border border-black py-2.5 px-5 hover:bg-black hover:text-white transition-colors duration-200"
+                    >
+                      {initiative.buttonText}
+                    </Link>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
