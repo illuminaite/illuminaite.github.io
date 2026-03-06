@@ -37,8 +37,7 @@ export default function Header() {
                 <div className="border-t border-black absolute top-1 left-0 right-0"></div>
                 <div className="py-3">
                     <p className="text-base md:text-lg text-black leading-relaxed font-light px-8">
-                        We bring curious people exploring interdisciplinary challenges of the ethics and societal impacts of AI,
-                        together.
+                        Conference 2026 Fall is in planning now, with agenda, speakers, and registration details coming soon.
                     </p>
                 </div>
                 <div className="border-b border-black absolute bottom-1 left-0 right-0"></div>

@@ -250,21 +250,41 @@ export default function Hero() {
             <div className="relative z-10 container mx-auto px-8 py-48 max-w-6xl">
                 <div className="max-w-2xl ml-24 flex flex-col justify-center space-y-16">
                     <div>
-                        <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
-                            RESEARCH <span className="text-black">&</span> WRITING
-                        </h2>
+                        <Link
+                            href="/blogs"
+                            className="group inline-block"
+                            aria-label="Open research and writing blogs"
+                        >
+                            <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2 transition-colors group-hover:text-[#BF2929]">
+                                RESEARCH <span className="text-black group-hover:text-[#BF2929]">&</span> WRITING
+                            </h2>
+                        </Link>
                     </div>
 
                     <div>
-                        <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
-                            VIDEOS <span className="text-black">&</span> INTERVIEWS
-                        </h2>
+                        <a
+                            href="https://www.youtube.com/@illuminaiteacademy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-block"
+                            aria-label="Open videos and interviews on YouTube"
+                        >
+                            <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2 transition-colors group-hover:text-[#BF2929]">
+                                VIDEOS <span className="text-black group-hover:text-[#BF2929]">&</span> INTERVIEWS
+                            </h2>
+                        </a>
                     </div>
 
                     <div>
-                        <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2">
-                            AI ETHICS CONFERENCE
-                        </h2>
+                        <Link
+                            href="/conference"
+                            className="group inline-block"
+                            aria-label="Open AI Ethics Conference page"
+                        >
+                            <h2 className="text-4xl text-black font-italiana tracking-wide inline-block border-b border-black/30 pb-2 transition-colors group-hover:text-[#BF2929]">
+                                AI ETHICS CONFERENCE
+                            </h2>
+                        </Link>
                     </div>
                 </div>
             </div>
