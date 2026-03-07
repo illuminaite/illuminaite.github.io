@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
   title: 'AI Ethics Conference 2026',
@@ -249,6 +250,7 @@ export default function ConferencePage() {
 
   return (
     <main className="min-h-screen bg-black">
+      <Navbar />
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-20 space-y-16">
           <div id="intro" className="space-y-6">
