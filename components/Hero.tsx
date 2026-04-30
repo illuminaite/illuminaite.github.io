@@ -2,15 +2,34 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import main_blog_data from '@/data/blogs/letter-from-illuminai.json';
-import highlighted_blog_1 from '@/data/blogs/intro-to-ai-ethics.json';
+import letterFromIlluminai from '@/data/blogs/letter-from-illuminai.json';
+import introToAiEthics from '@/data/blogs/intro-to-ai-ethics.json';
+import witnessForInterpretability from '@/data/blogs/witness-for-interpretability.json';
 import type { Blog } from '@/types/blog';
 
 export default function Hero() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLElement>(null);
-    const main_blog = main_blog_data as Blog;
-    const highlightedBlogs = [highlighted_blog_1] as Blog[];
+
+    // Parse date string to Date object for sorting
+    const parseDate = (dateStr: string): Date => {
+        return new Date(dateStr);
+    };
+
+    // Get all blogs and sort by date (most recent first)
+    const allBlogs = [
+        letterFromIlluminai,
+        introToAiEthics,
+        witnessForInterpretability,
+    ] as Blog[];
+
+    const sortedBlogs = allBlogs.sort((a, b) => {
+        return parseDate(b.date).getTime() - parseDate(a.date).getTime();
+    });
+
+    // Use the 3 most recent blogs
+    const main_blog = sortedBlogs[0];
+    const highlightedBlogs = sortedBlogs.slice(1, 3);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches) return;

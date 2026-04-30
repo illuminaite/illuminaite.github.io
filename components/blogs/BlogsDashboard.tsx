@@ -113,13 +113,13 @@ export default async function BlogsDashboard() {
                     {/* Blog Grid */}
                 <div className="px-20 pb-24">
                 <div
-                    className="flex flex-wrap max-w-[1282px] gap-y-24 gap-x-8 justify-start items-start content-start"
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1282px]"
                 >
                     {blogs.map((blog) => (
                             <Link
                                 key={blog.slug}
                                 href={`/blogs/${blog.slug}`}
-                                className="flex flex-col items-start group w-full sm:w-[calc(50%-16px)] lg:w-[404px] gap-6"
+                                className="flex flex-col items-start group gap-6"
                             >
                             {/* Blog Image */}
                             <div
