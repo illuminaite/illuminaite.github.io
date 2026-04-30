@@ -3,6 +3,20 @@
 import { Blog } from '@/types/blog';
 import { useState } from 'react';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import { MathJax, MathJaxContext } from 'better-react-mathjax';
+
+const mathJaxConfig = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    svg: {
+        fontCache: 'global'
+    }
+};
 
 interface BlogPageProps {
     blog: Blog;
@@ -146,8 +160,50 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                                 lineHeight: '150%',
                                 marginBottom: '300px'
                             }}
-                            dangerouslySetInnerHTML={{ __html: blog.content.replace(/\n/g, '<br>') }}
-                        />
+                        >
+                            <style>{`
+                                .blog-content p {
+                                    margin-bottom: 1.2em;
+                                }
+                                .blog-content h1,
+                                .blog-content h2,
+                                .blog-content h3,
+                                .blog-content h4,
+                                .blog-content h5,
+                                .blog-content h6 {
+                                    margin-top: 1.5em;
+                                    margin-bottom: 0.75em;
+                                    font-weight: 700;
+                                    line-height: 1.3;
+                                }
+                                .blog-content h1 {
+                                    font-size: 2.2em;
+                                }
+                                .blog-content h2 {
+                                    font-size: 1.8em;
+                                }
+                                .blog-content h3 {
+                                    font-size: 1.5em;
+                                }
+                                .blog-content h4 {
+                                    font-size: 1.3em;
+                                }
+                                .blog-content h5,
+                                .blog-content h6 {
+                                    font-size: 1.1em;
+                                }
+                            `}</style>
+                            <MathJaxContext config={mathJaxConfig} version={3}>
+                                <MathJax dynamic>
+                                    <ReactMarkdown
+                                        remarkPlugins={[remarkGfm]}
+                                        rehypePlugins={[rehypeRaw]}
+                                    >
+                                        {blog.content}
+                                    </ReactMarkdown>
+                                </MathJax>
+                            </MathJaxContext>
+                        </div>
 
                         {/* Separator Line */}
                         <div
