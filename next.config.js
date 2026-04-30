@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  assetPrefix: 'https://illuminaite.github.io',
+  assetPrefix: process.env.USE_ASSET_PREFIX === 'true' ? 'https://illuminaite.github.io' : '',
   images: {
     unoptimized: true
   }
