@@ -10,7 +10,8 @@
     "lint": "next lint",
     "prepare": "husky",
     "deploy": "gh-pages -d out",
-    "deploy:pages": "npm run build:deploy && npm run deploy"
+    "deploy:pages": "npm run build:deploy && npm run deploy",
+    "sync-substack": "node scripts/sync-substack.js"
   },
   "dependencies": {
     "better-react-mathjax": "^3.0.1",
@@ -33,6 +34,7 @@
     "husky": "^9.1.6",
     "marked": "^15.0.12",
     "postcss": "^8.4.47",
+    "rss-parser": "^3.13.0",
     "serve": "^14.2.6",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2"
