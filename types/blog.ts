@@ -8,4 +8,5 @@ export interface Blog {
   tags: string[];
   image?: string;
   image_credit?: string;
+  external_url?: string;
 }

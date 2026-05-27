@@ -118,7 +118,8 @@ export default async function BlogsDashboard() {
                     {blogs.map((blog) => (
                             <Link
                                 key={blog.slug}
-                                href={`/blogs/${blog.slug}`}
+                                href={blog.external_url || `/blogs/${blog.slug}`}
+                                target={blog.external_url ? '_blank' : undefined}
                                 className="flex flex-col items-start group gap-6"
                             >
                             {/* Blog Image */}

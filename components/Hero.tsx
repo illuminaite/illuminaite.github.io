@@ -3,8 +3,8 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import letterFromIlluminai from '@/data/blogs/letter-from-illuminai.json';
-import introToAiEthics from '@/data/blogs/intro-to-ai-ethics.json';
-import witnessForInterpretability from '@/data/blogs/witness-for-interpretability.json';
+import aBriefIntroductionToAiEthics from '@/data/blogs/a-brief-introduction-to-ai-ethics.json';
+import aWitnessForInterpretability from '@/data/blogs/a-witness-for-interpretability.json';
 import type { Blog } from '@/types/blog';
 
 export default function Hero() {
@@ -19,8 +19,8 @@ export default function Hero() {
     // Get all blogs and sort by date (most recent first)
     const allBlogs = [
         letterFromIlluminai,
-        introToAiEthics,
-        witnessForInterpretability,
+        aBriefIntroductionToAiEthics,
+        aWitnessForInterpretability,
     ] as Blog[];
 
     const sortedBlogs = allBlogs.sort((a, b) => {
