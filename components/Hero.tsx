@@ -30,6 +30,8 @@ export default function Hero() {
     // Use the 3 most recent blogs
     const main_blog = sortedBlogs[0];
     const highlightedBlogs = sortedBlogs.slice(1, 3);
+    const getBlogHref = (blog: Blog) => blog.external_url || `/blogs/${blog.slug}/`;
+    const getBlogTarget = (blog: Blog) => blog.external_url ? '_blank' : undefined;
 
     useEffect(() => {
         if (typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches) return;
@@ -340,7 +342,12 @@ export default function Hero() {
 
             <div className="relative z-10 w-full px-[3vw] sm:px-10 lg:px-16 xl:px-20 pb-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                    <Link href={`/blogs/${main_blog.slug}/`} className="lg:col-span-7 block group">
+                    <Link
+                        href={getBlogHref(main_blog)}
+                        target={getBlogTarget(main_blog)}
+                        rel={main_blog.external_url ? 'noopener noreferrer' : undefined}
+                        className="lg:col-span-7 block group"
+                    >
                         <div className="border border-black/40 bg-white/90 shadow-[0_12px_25px_rgba(0,0,0,0.12)] rounded-xl overflow-hidden flex flex-col transition-shadow group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.15)]">
                             <div className="w-full bg-neutral-100 aspect-[16/9] max-h-[320px]">
                                 <div
@@ -365,7 +372,9 @@ export default function Hero() {
                             {highlightedBlogs.map((item, idx) => (
                                 <Link
                                     key={idx}
-                                    href={`/blogs/${item.slug}/`}
+                                    href={getBlogHref(item)}
+                                    target={getBlogTarget(item)}
+                                    rel={item.external_url ? 'noopener noreferrer' : undefined}
                                     className="flex items-center justify-between gap-4 border border-black/20 rounded-xl px-3 py-3 bg-white transition-shadow hover:shadow-md"
                                 >
                                     <div className="flex-1">

@@ -120,6 +120,7 @@ export default async function BlogsDashboard() {
                                 key={blog.slug}
                                 href={blog.external_url || `/blogs/${blog.slug}`}
                                 target={blog.external_url ? '_blank' : undefined}
+                                rel={blog.external_url ? 'noopener noreferrer' : undefined}
                                 className="flex flex-col items-start group gap-6"
                             >
                             {/* Blog Image */}

@@ -36,6 +36,8 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
 
     // Show up to 3 related blogs (excluding current blog)
     const displayBlogs = relatedBlogs.filter(b => b.slug !== blog.slug).slice(0, 3);
+    const getBlogHref = (relatedBlog: Blog) => relatedBlog.external_url || `/blogs/${relatedBlog.slug}`;
+    const getBlogTarget = (relatedBlog: Blog) => relatedBlog.external_url ? '_blank' : undefined;
 
     return (
         <>
@@ -240,7 +242,9 @@ export default function BlogPage({ blog, relatedBlogs = [] }: BlogPageProps) {
                                     {displayBlogs.map((relatedBlog) => (
                                         <Link
                                             key={relatedBlog.slug}
-                                            href={`/blogs/${relatedBlog.slug}`}
+                                            href={getBlogHref(relatedBlog)}
+                                            target={getBlogTarget(relatedBlog)}
+                                            rel={relatedBlog.external_url ? 'noopener noreferrer' : undefined}
                                             className="flex flex-col gap-4 no-underline group"
                                             style={{ flex: '1 0 0', alignSelf: 'stretch' }}
                                         >
