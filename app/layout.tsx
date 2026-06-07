@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://illuminaite.github.io',
+    url: 'https://thelumens.github.io',
     siteName: 'illuminaite academy',
     title: 'illuminaite academy',
     description: 'Demystifying the world of CS & AI. Building a network of interdisciplinary students & opportunities.',

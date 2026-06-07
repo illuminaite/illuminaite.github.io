@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  assetPrefix: 'https://illuminaite.github.io',
+  assetPrefix: 'https://thelumens.github.io',
   images: {
     unoptimized: true
   }
