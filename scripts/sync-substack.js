@@ -17,13 +17,20 @@ function slugify(str) {
 
 function stripHtml(html) {
   if (!html) return '';
-  return html
+  return decodeHtmlEntities(html
     .replace(/<[^>]*>/g, '')
     .replace(/&nbsp;/g, ' ')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&amp;/g, '&')
-    .trim();
+    .trim());
+}
+
+function decodeHtmlEntities(text) {
+  if (!text) return '';
+  return text
+    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, code) => String.fromCodePoint(parseInt(code, 16)));
 }
 
 function extractExcerpt(content, maxLength = 160) {
@@ -62,7 +69,7 @@ async function syncSubstack() {
         continue;
       }
 
-      const content = item.content || item.description || '';
+      const content = decodeHtmlEntities(item.content || item.description || '');
       const excerpt = extractExcerpt(content);
       const date = item.pubDate ? new Date(item.pubDate).toLocaleDateString('en-US', {
         year: 'numeric',
