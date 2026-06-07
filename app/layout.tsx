@@ -33,26 +33,26 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'illuminaite academy',
-    template: '%s | illuminaite academy'
+    default: 'The Lumens',
+    template: '%s | The Lumens'
   },
-  description: 'Demystifying the world of CS & AI. Building a network of interdisciplinary students & opportunities.',
+  description: 'Where AI safety meets art, society, and the people in between.',
   keywords: ['AI', 'computer science', 'education', 'technology', 'interdisciplinary', 'workshops', 'community'],
-  authors: [{ name: 'illuminaite academy' }],
-  creator: 'illuminaite academy',
-  publisher: 'illuminaite academy',
+  authors: [{ name: 'The Lumens' }],
+  creator: 'The Lumens',
+  publisher: 'The Lumens',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://thelumens.github.io',
-    siteName: 'illuminaite academy',
-    title: 'illuminaite academy',
-    description: 'Demystifying the world of CS & AI. Building a network of interdisciplinary students & opportunities.',
+    siteName: 'The Lumens',
+    title: 'The Lumens',
+    description: 'Where AI safety meets art, society, and the people in between.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'illuminaite academy',
-    description: 'Demystifying the world of CS & AI. Building a network of interdisciplinary students & opportunities.',
+    title: 'The Lumens',
+    description: 'Where AI safety meets art, society, and the people in between.',
   },
   icons: {
     icon: '/images/illuminaite_logo.ico',

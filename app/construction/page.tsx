@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Under Construction | illuminaite academy',
+  title: 'Under Construction | The Lumens',
   description: 'This page is currently under construction. Check back soon for updates!',
 }
 

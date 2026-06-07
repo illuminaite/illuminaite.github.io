@@ -35,20 +35,20 @@ export default async function BlogsDashboard() {
             <div className="bg-black">
                 <div className="max-w-[1440px] mx-auto bg-black relative z-10 pt-8 overflow-hidden">
                     <div className="flex justify-between items-baseline w-full px-4 md:px-8">
-                        {/* Left: illuminAI + divider + AI, ETHICS & SOCIETY */}
+                        {/* Left: The Lumens + divider + AI SAFETY, ART & SOCIETY */}
                         <div className="flex items-baseline gap-2">
                             <h1
                                 className="font-italiana font-light tracking-tight text-white"
                                 style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)' }}
                             >
-                                illuminAI
+                                The Lumens
                             </h1>
                             <div className="h-12 w-px bg-white/30 shrink-0" />
                             <p
                                 className="hidden md:block text-white font-italiana tracking-wide"
                                 style={{ fontSize: 'clamp(1rem, 3vw, 1.5rem)' }}
                             >
-                                AI, ETHICS <span className="text-white">&</span> SOCIETY
+                                AI SAFETY, ART <span className="text-white">&</span> SOCIETY
                             </p>
                         </div>
                         <p className="text-sm md:text-base text-white font-caudex uppercase px-4 md:px-8">
@@ -67,8 +67,7 @@ export default async function BlogsDashboard() {
                         <div className="border-t border-white absolute top-1 left-0 right-0" />
                         <div className="py-3">
                             <p className="text-base md:text-lg text-white leading-relaxed font-light font-caudex px-4 md:px-8">
-                                We bring curious people exploring interdisciplinary challenges of the ethics and societal impacts of AI,
-                                together.
+                                Where AI safety meets art, society, and the people in between.
                             </p>
                         </div>
                         <div className="border-b border-white absolute bottom-1 left-0 right-0" />

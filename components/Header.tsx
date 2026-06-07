@@ -21,12 +21,11 @@ export default function Header() {
             <div className="flex justify-between items-baseline w-full">
                 <div className="flex items-baseline md:gap-2">
                     <h1 className="text-5xl md:text-6xl font-italiana font-light tracking-tight px-4">
-                        <span className="text-[#BF2929]">illumin</span>
-                        <span className="text-[#BF2929]">AI</span>
+                        <span className="text-[#BF2929]">The Lumens</span>
                     </h1>
                     <div className="h-12 w-px bg-[#8B0000]/30"></div>
                     <p className="hidden md:block text-xl md:text-2xl text-[#BF2929] font-italiana tracking-wide">
-                        AI, ETHICS <span className="text-[#BF2929]">&</span> SOCIETY
+                        AI SAFETY, ART <span className="text-[#BF2929]">&</span> SOCIETY
                     </p>
                 </div>
                 <p className="text-sm md:text-base text-black font-caudex uppercase px-8">{currentDate}</p>
@@ -37,7 +36,7 @@ export default function Header() {
                 <div className="border-t border-black absolute top-1 left-0 right-0"></div>
                 <div className="py-3">
                     <p className="text-base md:text-lg text-black leading-relaxed font-light px-8">
-                        Conference 2026 Fall is in planning now, with agenda, speakers, and registration details coming soon.
+                        Where AI safety meets art, society, and the people in between.
                     </p>
                 </div>
                 <div className="border-b border-black absolute bottom-1 left-0 right-0"></div>

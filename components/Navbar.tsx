@@ -57,7 +57,7 @@ export default function Navbar() {
                     href="/"
                     className="text-white text-xl font-italiana cursor-pointer tracking-wider hover:text-primary-coral transition-colors duration-300"
                 >
-                    illuminAI
+                    The Lumens
                 </Link>
 
                 {/* Mobile menu button */}

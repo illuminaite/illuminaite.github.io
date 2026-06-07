@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Events',
-  description: 'illuminaite academy events — upcoming and past',
+  description: 'The Lumens events — upcoming and past',
 }
 
 export default function EventsPage() {

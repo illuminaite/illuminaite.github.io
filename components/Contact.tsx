@@ -21,7 +21,7 @@ export default function Contact() {
                 say hi, ask a question, collaborate with us, join our team...
               </p>
               <p className="font-caudex text-sm leading-relaxed mb-8">
-                use the button below to send us an email, or reach us through instagram direct messages too (to @illuminaiteacademy)
+                use the button below to send us an email, or reach us through instagram direct messages too.
               </p>
               <a
                 href="mailto:illuminaiteacademy@gmail.com"
@@ -36,7 +36,7 @@ export default function Contact() {
               <div className="relative w-80 h-80 border border-black flex items-center justify-center">
                 <Image
                   src="/images/animated logo.gif"
-                  alt="illuminaite animated logo"
+                  alt="The Lumens animated logo"
                   width={300}
                   height={300}
                   className="object-contain"

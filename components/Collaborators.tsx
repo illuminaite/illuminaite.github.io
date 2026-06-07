@@ -70,7 +70,7 @@ export default function Collaborators() {
                     "The most non-CS CS club."
                 </span>
                 <span>
-                    "AI ethics is an extremely important but underrecognized field, and I find it enticing that illuminAI advocates for it."
+                    "AI ethics is an extremely important but underrecognized field, and I find it enticing that The Lumens advocates for it."
                 </span>
                 <span>
                     "An exceptional opportunity to distill my philosophy regarding AI, bearing particular concern towards AI ethics, safety, and alignment."

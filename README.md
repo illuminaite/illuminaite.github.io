@@ -61,4 +61,4 @@ bun build
 
 ## 📄 License
 
-© illuminaite 2025. All rights reserved
+© The Lumens 2025. All rights reserved

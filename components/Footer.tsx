@@ -10,7 +10,7 @@ export default function Footer() {
               href="/"
               className="flex justify-center text-white text-xl font-medium cursor-pointer no-underline"
             >
-              illuminAI
+              The Lumens
             </Link>
           <div className="flex space-x-6">
             <a
@@ -49,7 +49,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
               <Link href="/blogs" className="text-gray-400 hover:text-white transition-colors duration-300 no-underline text-sm">Articles</Link>
               <a href="https://medium.com/@illuminaiteacademy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300 no-underline text-sm">Medium</a>
-              <a href="https://substack.com/@illuminai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300 no-underline text-sm">Substack</a>
+              <a href="https://thelumens.substack.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300 no-underline text-sm">Substack</a>
             </div>
             <div className="flex flex-col gap-2">
               <a href="https://www.youtube.com/@illuminaiteacademy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300 no-underline text-sm">YouTube</a>
